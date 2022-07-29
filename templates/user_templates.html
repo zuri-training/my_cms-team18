@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from preview.cruip.com/simple/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 02:08:26 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Simple HTML Demo - Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="{% static 'css/vendors/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body class="ct hv bg-white ck cw">
+
+    <!-- Page wrapper -->
+    <div class="ii oz i_ uv">
+
+        <!-- Site header -->
+        <header class="k ij tf mz hq pt po" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-white hj shadow-lg' : !top }">
+            <div class="sc tj fc vs">
+                <div class="ii un uo ia mr">
+
+                    <!-- Site branding -->
+                    <div class="s_ np">
+                        <!-- Logo -->
+                        <a class="block" href="index-2.html" aria-label="Cruip">
+                            <svg class="iq if" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
+                                        <stop stop-color="#4FD1C5" offset="0%"></stop>
+                                        <stop stop-color="#81E6D9" offset="25.871%"></stop>
+                                        <stop stop-color="#338CF5" offset="100%"></stop>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="32" height="32" rx="16" fill="url(#header-logo)" fill-rule="nonzero"></rect>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Desktop navigation -->
+                    <nav class="hidden me mh">
+
+                    
+
+                        <!-- Desktop sign in links -->
+                        <ul class="ii sj ui ue un">
+                            {% if request.user.is_authenticated %}
+                            <li>
+                                <a class="cc c_ pm fc fd ii un hq pn po" href="/">Hi! {{request.user.username}}</a>
+                            </li>
+                            <li>
+                                <a class="cc c_ pm fc fd ii un hq pn po" href="#">My Templates</a>
+                            </li>
+                            <li>
+                                <a class="r cq ao pf nm" href="signup.html">
+                                    <span>Logout</span>
+                                    <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill-rule="nonzero"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a class="cc c_ pm fc fd ii un hq pn po" href="signin.html">Sign in</a>
+                            </li>
+                            <li>
+                                <a class="r cq ao pf nm" href="signup.html">
+                                    <span>Sign up</span>
+                                    <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill-rule="nonzero"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+
+                    </nav>
+                    
+                    <!-- Mobile menu -->
+                    <div class="ii mn" x-data="{ expanded: false }">
+
+                        <!-- Hamburger button -->
+                        <button class="l" :class="{ 'active': expanded }" @click.stop="expanded = !expanded" aria-controls="mobile-nav" :aria-expanded="expanded">
+                            <span class="b">Menu</span>
+                            <svg class="st ic ft ck" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="4" width="24" height="2"></rect>
+                                <rect y="11" width="24" height="2"></rect>
+                                <rect y="18" width="24" height="2"></rect>
+                            </svg>
+                        </button>
+
+                        <!-- Mobile navigation -->
+                        <nav id="mobile-nav" class="_ te ih ln tl tn ij um bg-white" @click.outside="expanded = false" @keydown.escape.window="expanded = false" x-show="expanded" x-transition:enter="hq pu pr om" x-transition:enter-start="hg ot" x-transition:enter-end="hy on" x-transition:leave="hq pu pr" x-transition:leave-start="hy" x-transition:leave-end="hg" x-cloak="">
+                            <ul class="fc fp">
+                                {% if request.user.is_authenticated %}
+                                <li>
+                                    <a class="ii cc ij c_ pm fp us" href="/">Hi! {{request.user.username}}</a>
+                                </li>
+                                <li>
+                                    <a class="ii cc ij c_ pm fp us" href="#">My Templates</a>
+                                </li>
+                                <li>
+                                    <a class="r cq ao pf ij tq" href="signup.html">
+                                        <span>Logout</span>
+                                        <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill="#999" fill-rule="nonzero"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a class="ii cc ij c_ pm fp us" href="signin.html">Sign in</a>
+                                </li>
+                                <li>
+                                    <a class="r cq ao pf ij tq" href="signup.html">
+                                        <span>Sign up</span>
+                                        <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill="#999" fill-rule="nonzero"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Page content -->
+        <main class="sj">
+            <section>
+                <div class="sc tj fv vs">
+                    <div class="fy gn">
+
+                        <!-- Section header -->
+                        <div class="sh tj ce ls go">
+                            <h2 class="h2">My Templates</h2>
+                        </div>
+                        <!-- Articles list -->
+                        <div class="sg tj mf">
+                            <div class="io uf mg mj mq ut">
+                                {% if templates %}
+                                    {% for template in templates %}
+                                        <article class="ii oz ib" data-aos="zoom-y-out" >
+                                            <header>
+                                                <a class="block rn" href="{% url 'user_template_preview' username=request.user.username id=template.id %}">
+                                                    <figure class="j id lv uv g uy" >
+                                                        <img class="_ z ij ib fr om ov pa hq ps pu" src="{{ template.thumbnail.url }}" width="352" height="198" alt="News 01">
+                                                    </figure>
+                                                </a>
+                                                <div class="nq">
+                                                    <ul class="ii ue cu cc tk">
+                                                        <li class="t_">
+                                                            <a class="is ce ha fk fh ub ac pp hq pn po" href="{% url 'user_template_preview' username=request.user.username id=template.id %}">Preview</a>
+                                                        </li>
+                                                        {% if request.user.is_authenticated %}
+                                                        <li class="t_">
+                                                            <a class="is ce he fk fh ub bg-white ph hk hq pn po" href="{% url 'edit_user_template' username=request.user.username id=template.id %}">Edit</a>
+                                                        </li>
+                                                        <li class="t_">
+                                                            <a class="is ce he fk fh ub ph hk hq pn po" href="{% url 'edit_user_template' username=request.user.username id=template.id %}" style="background-color: rgb(97, 200, 97);">Publish</a>
+                                                        </li>
+                                                        <li class="t_">
+                                                            <a class="is ce he fk fh ub bg-red-400 ph hk hq pn po" href="{% url 'edit_user_template' username=request.user.username id=template.id %}" style="background-color: rgb(215, 42, 42);">Delete</a>
+                                                        </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </div>
+                                                <h3 class="cr ch cy cw">
+                                                    <a class="pg" href="blog-post.html">{{ template.title }}</a>
+                                                </h3>
+                                            </header>
+                                        </article>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Cta -->
+            
+            
+        </main>
+
+        
+
+    </div>
+
+    <script src="{% static 'js/vendors/alpinejs.min.js' %}" defer=""></script>
+    <script src="{% static 'js/vendors/aos.js' %}"></script>
+    <script src="{% static 'js/vendors/sticky.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-125021779-1'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-125021779-1', { 'anonymize_ip': true });</script><script>console.log("%cImportant!", "color: blue; font-size: x-large");console.log("%cThe page you are viewing is for demo purposes only. CSS and HTML have been minified and class names have been shortened to improve the page load time. Download our templates from https://cruip.com/ 😉", "font-size: large");</script><script>const pagesList = [{"name":"Home","url":"https://preview.cruip.com/simple/index.html","active":true},{"name":"Pricing","url":"https://preview.cruip.com/simple/pricing.html","active":false},{"name":"About us","url":"https://preview.cruip.com/simple/about.html","active":false},{"name":"Tutorials","url":"https://preview.cruip.com/simple/tutorials.html","active":false},{"name":"Blog","url":"https://preview.cruip.com/simple/blog.html","active":false},{"name":"Blog Post","url":"https://preview.cruip.com/simple/blog-post.html","active":false},{"name":"Documentation","url":"https://preview.cruip.com/simple/documentation.html","active":false},{"name":"Support center","url":"https://preview.cruip.com/simple/support.html","active":false},{"name":"404","url":"https://preview.cruip.com/simple/404.html","active":false},{"name":"Sign in","url":"https://preview.cruip.com/simple/signin.html","active":false},{"name":"Sign up","url":"https://preview.cruip.com/simple/signup.html","active":false},{"name":"Reset password","url":"https://preview.cruip.com/simple/reset-password.html","active":false}];if(window != top){window.parent.postMessage(pagesList, "https://cruip.com/")};</script></body>
+<!-- Mirrored from preview.cruip.com/simple/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jul 2022 02:08:36 GMT -->
+</html>
