@@ -9,8 +9,8 @@ Our project is bulit mainly on Python django, html, css, bootstarp and javascrip
 # Our approach
 ![FORGE-PRESENTATION-1 (2)](https://user-images.githubusercontent.com/99877794/181843231-5869975c-1cb7-4439-9fcf-f0415d2e5217.png)
 # How to run our project
--> Create a virtual environment "py -3 -m venv <virtual environment name>" to create a virtual environment
--> Run "pip install -r requirements.txt" to install all dependencies
+-> Create a virtual environment "py -3 -m venv <virtual environment name>" to create a virtual environment <br />
+-> Run "pip install -r requirements.txt" to install all dependencies <br />
 -> Git clone <repo> to clone the repo to your local machine
 -> Then run this to load the database:
       Python manage.py makemigrations
