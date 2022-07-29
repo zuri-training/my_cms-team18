@@ -1,5 +1,6 @@
 # my_cms-team18
 This is the repo of team18 project (my_cms)
+Our project is bulit mainly on Python django, html, css, bootstarp and javascript.
 # Overview of our project
 ![FORGE-PRESENTATION-1](https://user-images.githubusercontent.com/99877794/181842658-e05cc7dc-072b-4629-b44a-b260413ff532.png)
 
