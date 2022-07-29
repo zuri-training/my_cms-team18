@@ -86,7 +86,8 @@
           .then((response) => {
             $('#exampleModal').modal('show')
             setTimeout(()=> {$('#exampleModal').modal('hide')}, 1000)
-            setTimeout(()=> {window.location.reload()}, 1000)
+            let url = `{% url 'user_template_preview' username=request.user.username id=1234 %}`.replace('1234', response.result.pk.toString())
+            setTimeout(()=> {window.location.href=url}, 1000)
           })
           .catch((error) => {
             console.log(error);

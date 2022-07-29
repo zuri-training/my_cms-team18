@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import JsonResponse
 from .models import Template, UserProfile, Page
 from django.core.serializers import serialize
+from django.contrib.auth.models import User
 import json
 from django.contrib.auth import authenticate, login, logout
 
@@ -60,4 +61,37 @@ def save_user_template(request,username,  id):
         page.save()
     return JsonResponse({ "result" : (json.loads(serialize('json', [page])))[0]})
 
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+                login(request, user)
+                return redirect('index')
+    return render(request, 'login.html')
 
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
+def register_user(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password1 = request.POST['password1']
+        if not User.objects.filter(username=username).exists():
+            user = User.objects.create(
+                username=username,
+                email=email
+            )
+            user.set_password(password1)
+            user.save()
+            user_profile = UserProfile.objects.create(
+                user=user
+            )
+            user_profile.save()
+            return redirect('login')
+
+    return render(request, 'register.html')
