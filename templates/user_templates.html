@@ -51,7 +51,7 @@
                                 <a class="cc c_ pm fc fd ii un hq pn po" href="#">My Templates</a>
                             </li>
                             <li>
-                                <a class="r cq ao pf nm" href="signup.html">
+                                <a class="r cq ao pf nm" href="{% url 'logout' %}">
                                     <span>Logout</span>
                                     <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill-rule="nonzero"></path>
@@ -60,10 +60,10 @@
                             </li>
                             {% else %}
                             <li>
-                                <a class="cc c_ pm fc fd ii un hq pn po" href="signin.html">Sign in</a>
+                                <a class="cc c_ pm fc fd ii un hq pn po" href="{% url 'login' %}">Sign in</a>
                             </li>
                             <li>
-                                <a class="r cq ao pf nm" href="signup.html">
+                                <a class="r cq ao pf nm" href="{% url 'register' %}">
                                     <span>Sign up</span>
                                     <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill-rule="nonzero"></path>
@@ -99,7 +99,7 @@
                                     <a class="ii cc ij c_ pm fp us" href="#">My Templates</a>
                                 </li>
                                 <li>
-                                    <a class="r cq ao pf ij tq" href="signup.html">
+                                    <a class="r cq ao pf ij tq" href="{% url 'logout' %}">
                                         <span>Logout</span>
                                         <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill="#999" fill-rule="nonzero"></path>
@@ -108,10 +108,10 @@
                                 </li>
                                 {% else %}
                                 <li>
-                                    <a class="ii cc ij c_ pm fp us" href="signin.html">Sign in</a>
+                                    <a class="ii cc ij c_ pm fp us" href="{% url 'login' %}">Sign in</a>
                                 </li>
                                 <li>
-                                    <a class="r cq ao pf ij tq" href="signup.html">
+                                    <a class="r cq ao pf ij tq" href="{% url 'register' %}">
                                         <span>Sign up</span>
                                         <svg class="iz il ft cj s_ ng ny" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill="#999" fill-rule="nonzero"></path>
@@ -174,6 +174,8 @@
                                             </header>
                                         </article>
                                     {% endfor %}
+                                {% else %}
+                                    <h2 class="h4">Your Template Stack Is Empty</h2>
                                 {% endif %}
                             </div>
                         </div>
