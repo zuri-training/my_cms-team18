@@ -8,6 +8,15 @@ This is the repo of team18 project (my_cms)
 # Our approach
 ![FORGE-PRESENTATION-1 (2)](https://user-images.githubusercontent.com/99877794/181843231-5869975c-1cb7-4439-9fcf-f0415d2e5217.png)
 # How to run our project
+-> Create a virtual environment "py -3 -m venv <virtual environment name>" to create a virtual environment
+-> Run "pip install -r requirements.txt" to install all dependencies
+-> Git clone <repo> to clone the repo to your local machine
+-> Then run this to load the database:
+      Python manage.py makemigrations
+                &
+      Python manage.py migrate
+-> Then run python manage.py createsuperuser to create an admin account
+-> Then finally run python manage.py runserver to load the server on localhost
 
 ![FORGE-PRESENTATION-1 (3)](https://user-images.githubusercontent.com/99877794/181843303-0098c9e7-8dca-4f9b-911a-8399bc2b656c.png)
 
