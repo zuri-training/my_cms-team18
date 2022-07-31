@@ -42,24 +42,28 @@
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Sign in to your account</a>
         </p>
       </div>
-      <form class="mt-8 space-y-6" action="{% url 'register' %}" method="POST">
+      <form class="mt-8 space-y-6" onSubmit="saveContent(event)" method="POST">
         {% csrf_token %}
         <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+            <label for="email" id="username_label" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
             <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required>
-        </div> 
+            <p class="text-red-500 text-xs italic" id="username_error" style="display: none;" ></p>
+          </div> 
         <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+            <label for="email" id="email_label" class="block mb-2 text-sm font-medium text-gray-900 ">Email address</label>
             <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
-        </div> 
+            <p class="text-red-500 text-xs italic" id="email_error" style="display: none;" ></p>
+          </div> 
         <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+            <label for="password" id="password_label" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
             <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
-        </div> 
+            <p class="text-red-500 text-xs italic" id="password_error" style="display: none;" ></p>
+          </div> 
         <div class="mb-6">
-            <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirm password</label>
-            <input type="password" name="password1" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
-        </div>
+            <label for="confirm_password" id="password1_label" class="block mb-2 text-sm font-medium text-gray-900 ">Confirm password</label>
+            <input type="password" name="password1" id="password1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
+            <p class="text-red-500 text-xs italic" id="password1_error" style="display: none;" ></p>
+          </div>
         <div class="flex items-start mb-6">
             <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"><a href="{% url 'login' %}" class="text-blue-600 hover:underline dark:text-blue-500">Sign In</a></label>
         </div>
@@ -67,6 +71,71 @@
       </form>
     </div>
   </div>
-  
+  <script type="text/javascript">
+    function error(value, error_text) {
+      const obj_label = document.getElementById(`${value}_label`)
+      obj_label.classList.remove('text-gray-900')
+      obj_label.classList.add('text-red-500')
+      const obj = document.getElementById(`${value}`)
+      obj.classList.remove('border-gray-300')
+      obj.classList.add('border-red-500')
+      const obj_error_message = document.getElementById(`${value}_error`)
+      obj_error_message.innerText = error_text
+      obj_error_message.style.display = 'block'
+    }
+    function no_error(value, error_text){
+      const obj_label = document.getElementById(`${value}_label`)
+      obj_label.classList.remove('text-red-500')
+      obj_label.classList.add('text-gray-900')
+      const obj = document.getElementById(`${value}`)
+      obj.classList.remove('border-red-500')
+      obj.classList.add('border-gray-300')
+      const obj_error_message = document.getElementById(`${value}_error`)
+      obj_error_message.innerText = error_text
+      obj_error_message.style.display = 'none'
+    }
+    function saveContent(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('username', document.getElementById('username').value)
+        formData.append('email', document.getElementById('email').value)
+        formData.append("password", document.getElementById('password').value);
+        formData.append('password1', document.getElementById('password1').value)
+        const csrftoken = document.querySelector(
+          "[name=csrfmiddlewaretoken]"
+        ).value;
+        const url = `{% url 'register' %}` 
+        const request = new Request(url, {
+          method: "POST",
+          headers: { "X-CSRFToken": csrftoken },
+          mode: "same-origin", // Do not send CSRF token to another domain.
+          body: formData,
+        });
+        fetch(request)
+          .then((resp) => resp.json())
+          .then((response) => {
+            if (response.status == 409){
+              if (response.result.username){
+                error('username', response.result.username)
+              }
+              else{
+                no_error('username', response.result.username)
+              }
+              if (response.result.password){
+                error('password', response.result.password)
+                error('password1', response.result.password)
+              }
+              else{
+                no_error('password', response.result.password)
+                no_error('password1', response.result.password)
+              }
+            }
+            else{
+              window.location.href = `{% url 'login' %}`
+            }
+            
+          })
+      }
+  </script>
 </body>
 </html>
