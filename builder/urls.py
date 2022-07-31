@@ -11,6 +11,7 @@ urlpatterns = [
     path('str:<username>/edit/<int:id>/', edit_user_template, name='edit_user_template'),
     path('str:<username>/save/<int:id>/', save_user_template, name='save_user_template'),
     path('login/', login_user, name='login'),
+    path('sign-up/', register_user, name='register'),
     path('logout/', logout_user, name="logout"),
-    path('register/', register_user, name='register')
+    
 ]

@@ -5,6 +5,7 @@ from django.core.serializers import serialize
 from django.contrib.auth.models import User
 import json
 from django.contrib.auth import authenticate, login, logout
+from .validator import registration_validation
 
 def index(request):
     templates = Template.objects.all()
@@ -68,7 +69,9 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
                 login(request, user)
-                return redirect('index')
+                return JsonResponse({ "result" : 'Login successful', 'status': 200}, status=200)
+        else:
+             return JsonResponse({ "result" : 'Invalid username or password', 'status': 401}, status=401)
     return render(request, 'login.html')
 
 def logout_user(request):
@@ -81,7 +84,10 @@ def register_user(request):
         email = request.POST['email']
         password = request.POST['password']
         password1 = request.POST['password1']
-        if not User.objects.filter(username=username).exists():
+        errors = registration_validation(username, password, password1)
+        if errors:
+            return JsonResponse({ "result" : errors, 'status': 409}, status=409)
+        else:
             user = User.objects.create(
                 username=username,
                 email=email
@@ -92,6 +98,6 @@ def register_user(request):
                 user=user
             )
             user_profile.save()
-            return redirect('login')
-
+            return JsonResponse({ "result" : 'Registration Successful', 'status': 201}, status=201)
+            
     return render(request, 'register.html')
