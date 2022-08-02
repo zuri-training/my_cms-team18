@@ -1,5 +1,6 @@
 from email.policy import default
 from turtle import mode, title
+from unicodedata import category
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -26,10 +27,20 @@ class Page(models.Model):
     def __str__(self):
         return self.title
 
+class Category(models.Model):
+    title = models.CharField(blank=False, null=False, max_length=200)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = "Categories"
+
 class Template(models.Model):
     title = models.CharField(blank=False, null=False, max_length=200)
     html = models.TextField(blank=True, null=True,)
     css = models.TextField(blank=True, null=True,)
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
     thumbnail = models.ImageField()
     number_of_uses = models.PositiveIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)

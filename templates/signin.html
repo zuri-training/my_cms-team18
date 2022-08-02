@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <title>FORGE</title>
+  </head>
+  <body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+          <div class="modal-body  p-2 text-white" style="text-align: center;">
+            Invalid username or password
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="logo">
+        <img src="{% static 'images/Group 271.png' %}" alt="" />
+        <p>
+          We guarantee you the best template, to give your project the best
+          impression
+        </p>
+        <img class="img1" src="{% static 'images/Image.png' %}" alt="picture" /><br />
+
+        <button class="btn1"><a href="">Sign in with Google</a></button>
+        <button class="btn2"><a href="">Sign in with Facebook</a></button>
+      </div>
+
+      <div class="section">
+        <h1>Sign in</h1>
+
+        <form class="form" onsubmit="saveContent(event)" method="POST">
+          {% csrf_token %}
+          <label for="Email"><b>Username or Email</b></label>
+          <input
+            type="text"
+            placeholder=" Project18@gmail.com"
+            name="username"
+            id="email"
+            required
+          /><br />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="************"
+            name="psw"
+            id="psw"
+            required
+          />
+
+        <div id="box"> 
+          <input
+            type="checkbox"
+            id="checkbox"
+            name="box"
+          />
+          <label for="checkbox"> Remember password</label>
+          <p><a href="">Forget password? </a></p>
+          <button class="btn3"><a href="">Sign In</a></button>
+        </div>
+      </form>
+
+        <div class="account">
+          <p>Not registered yet?</p>
+          <p><a href="{% url 'register' %}"> Create account </a></p>
+        </div>
+
+        <div class="para">
+          <p>
+            By signing in, you agree to our Terms of Use and to receive Forge
+            emails & updates and acknowledge that you read our Privacy Policy
+          </p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      function saveContent(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("username", document.getElementById("email").value);
+        formData.append("password", document.getElementById("psw").value);
+        formData.append("checkbox", document.getElementById("checkbox").value);
+        const csrftoken = document.querySelector(
+          "[name=csrfmiddlewaretoken]"
+        ).value;
+        const url = `{% url 'login' %}`;
+        const request = new Request(url, {
+          method: "POST",
+          headers: { "X-CSRFToken": csrftoken },
+          mode: "same-origin", // Do not send CSRF token to another domain.
+          body: formData,
+        });
+        fetch(request)
+          .then((resp) => resp.json())
+          .then((response) => {
+            if (response.status === 401) {
+              $("#exampleModal").modal("show");
+              setTimeout(() => {
+                $("#exampleModal").modal("hide");
+              }, 1600);
+            } else {
+              window.location = `{% url 'index' %}`;
+            }
+          });
+      }
+    </script>
+  </body>
+</html>

@@ -66,13 +66,16 @@ def login_user(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
+        remember_me = request.POST['checkbox']
         user = authenticate(request, username=username, password=password)
         if user is not None:
                 login(request, user)
+                if not remember_me:
+                    request.session.set_expiry(0)
                 return JsonResponse({ "result" : 'Login successful', 'status': 200}, status=200)
         else:
              return JsonResponse({ "result" : 'Invalid username or password', 'status': 401}, status=401)
-    return render(request, 'login.html')
+    return render(request, 'signin.html')
 
 def logout_user(request):
     logout(request)
@@ -100,4 +103,4 @@ def register_user(request):
             user_profile.save()
             return JsonResponse({ "result" : 'Registration Successful', 'status': 201}, status=201)
             
-    return render(request, 'register.html')
+    return render(request, 'signup.html')
