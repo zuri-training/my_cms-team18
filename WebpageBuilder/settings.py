@@ -42,12 +42,25 @@ INSTALLED_APPS = [
     'builder',
 
     # 3rd party apps
-    'django_extensions', 
+    # "sslserver",
+    # 'django_extensions', 
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+
+SITE_ID = 2 
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'builder.auth.EmailBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +153,19 @@ STATICFILES_DIRS =[
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        "SCOPE":[
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS':{
+            'access_type': 'online'
+        }
+    }
+}
+
+
+LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_LOGIN_ON_GET=True
