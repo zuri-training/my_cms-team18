@@ -3,6 +3,7 @@ from turtle import mode, title
 from unicodedata import category
 from django.db import models
 from django.contrib.auth import get_user_model
+from allauth.account.signals import user_signed_up
 
 User = get_user_model()
 
@@ -48,5 +49,13 @@ class Template(models.Model):
 
     def __str__(self):
         return self.title
+
+def user_signed_up_receiver(request, user, **kwargs):
+    user_profile = UserProfile.objects.create(
+                user=user
+            )
+    user_profile.save()
+
+user_signed_up.connect(user_signed_up_receiver, sender=User)
 
 
