@@ -15,7 +15,7 @@
     <title>FORGE</title>
 </head>
 <body>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-body  p-2 text-white" id="error_modal" style="text-align: center;">
@@ -23,8 +23,16 @@
             </div>
           </div>
         </div>
-      </div>
-
+    </div>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-success">
+            <div class="modal-body  p-2 text-white" id="error_modal" style="text-align: center;">
+              Registration successful
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="main">
 
         <div class="logo">
@@ -53,7 +61,7 @@
  <label class="pass" for="conpsw"><b> Confirm Password</b></label>
  <input type="password" placeholder="************" name="password1" id="password1" required>
 
- <button class="btn3" type="submit"><a href="">Sign Up</a></button>
+ <button class="btn3" type="submit">Sign Up</button>
 
  </form>
 
@@ -118,13 +126,18 @@
               else{
                 no_error()
               }
-              $("#exampleModal").modal("show");
+              $("#errorModal").modal("show");
               setTimeout(() => {
-                $("#exampleModal").modal("hide");
+                $("#errorModal").modal("hide");
               }, 1600);
             }
             else{
-              window.location.href = `{% url 'login' %}`
+                $("#successModal").modal("show");
+              setTimeout(() => {
+                $("#successModal").modal("hide");
+                window.location = `{% url 'login' %}`;
+              }, 1600);
+              
             }
             
           })

@@ -15,7 +15,7 @@
     <title>FORGE</title>
   </head>
   <body>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-danger">
           <div class="modal-body  p-2 text-white" style="text-align: center;">
@@ -24,6 +24,15 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-success">
+          <div class="modal-body  p-2 text-white" id="error_modal" style="text-align: center;">
+            Login successful
+          </div>
+        </div>
+      </div>
+  </div>
     <div class="main">
       <div class="logo">
         <img src="{% static 'images/Group 271.png' %}" alt="" />
@@ -68,7 +77,7 @@
           />
           <label for="checkbox"> Remember password</label>
           <p><a href="">Forget password? </a></p>
-          <button class="btn3"><a href="">Sign In</a></button>
+          <button class="btn3">Sign In</button>
         </div>
       </form>
 
@@ -116,12 +125,17 @@
           .then((resp) => resp.json())
           .then((response) => {
             if (response.status === 401) {
-              $("#exampleModal").modal("show");
+              $("#errorModal").modal("show");
               setTimeout(() => {
-                $("#exampleModal").modal("hide");
+                $("#errorModal").modal("hide");
               }, 1600);
             } else {
-              window.location = `{% url 'index' %}`;
+              $("#successModal").modal("show");
+              setTimeout(() => {
+                $("#successModal").modal("hide");
+                window.location = `{% url 'index' %}`;
+              }, 1600);
+              
             }
           });
       }
