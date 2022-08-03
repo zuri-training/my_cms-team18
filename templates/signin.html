@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,9 +44,9 @@
         </p>
         <img class="img1" src="{% static 'images/Image.png' %}" alt="picture" /><br />
 
-        <button class="btn1"><a href="">Sign in with Google</a></button>
-        <button class="btn2"><a href="">Sign in with Facebook</a></button>
-      </div>
+        <a href="{% provider_login_url 'google' %}" style="text-decoration: none;"><button class="btn1">Sign up with Google</button></a>
+        <a href="{% provider_login_url 'facebook' method='oauth2' %}" style="text-decoration: none;"><button class="btn2">Sign in with Facebook</button></a>
+       </div>
 
       <div class="section">
         <h1>Sign in</h1>
