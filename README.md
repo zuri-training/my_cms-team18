@@ -20,3 +20,10 @@ Our project is bulit mainly on Python django, html, css, bootstarp and javascrip
 
 Link to our database schema
 https://drive.google.com/file/d/1E4H7Ckv_2P45EUTUxayloc0C-x4AvUxZ/view
+
+Link to our Documentation
+-Developer Documentation
+https://docs.google.com/document/d/14_LQ54L0qXpyRUN3glvCZCa5h3FgB0z7YmGHMV4uaQA/edit?usp=drivesdk
+
+-User Documentation
+https://docs.google.com/document/d/1pAkt-nka2xg3yS5JntEQonmNzkCWfY8ds12Nr1skM2I/edit?usp=sharing
