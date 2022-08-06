@@ -1,6 +1,8 @@
 from email.policy import default
+from ensurepip import bootstrap
+from re import template
 from turtle import mode, title
-from unicodedata import category
+from unicodedata import category, name
 from django.db import models
 from django.contrib.auth import get_user_model
 from allauth.account.signals import user_signed_up
@@ -14,19 +16,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-
-class Page(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    title = models.CharField(blank=False, null=False, max_length=200)
-    html = models.TextField()
-    css = models.TextField()
-    publish = models.BooleanField(default=False)
-    thumbnail = models.ImageField(default=None)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.title
 
 class Category(models.Model):
     title = models.CharField(blank=False, null=False, max_length=200)
@@ -49,6 +38,32 @@ class Template(models.Model):
 
     def __str__(self):
         return self.title
+
+class Page(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    title = models.CharField(blank=False, null=False, max_length=200)
+    html = models.TextField()
+    css = models.TextField()
+    publish = models.BooleanField(default=False)
+    thumbnail = models.ImageField(default=None)
+    parent_template = models.ForeignKey(Template, on_delete=models.CASCADE, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
+
+class Style(models.Model):
+    template = models.ForeignKey(Template, related_name="template_styles", on_delete=models.CASCADE)
+    link = models.CharField(blank=True, null=True, max_length=260)
+
+    def __str__(self):
+        return  self.template.title
+class Script(models.Model):
+    template = models.ForeignKey(Template, related_name="template_scripts", on_delete=models.CASCADE)
+    link = models.CharField(blank=True, null=True, max_length=260)
+    def __str__(self):
+        return  self.template.title
 
 def user_signed_up_receiver(request, user, **kwargs):
     user_profile = UserProfile.objects.create(

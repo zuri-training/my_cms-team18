@@ -1,3 +1,5 @@
+from ensurepip import bootstrap
+from re import template
 from django.shortcuts import redirect, render
 from django.http import JsonResponse
 from .models import Template, UserProfile, Page
@@ -9,18 +11,30 @@ from .validator import registration_validation
 
 def index(request):
     templates = Template.objects.all()
-    return render(request, 'home.html', context={'templates': templates})
+    return render(request, 'core/index.html', context={'templates': templates})
+
+def features(request):
+    return render(request, 'core/features.html')
+
+def faq(request):
+    return render(request, 'core/faq.html')
 
 def preview_template(request, id):
     temp_obj = Template.objects.get(id=id)
-    return render(request, 'preview.html', context={'template': temp_obj})
+    scripts = temp_obj.template_scripts.all()
+    styles = temp_obj.template_styles.all()
+    return render(request, 'preview.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
 def edit_template(request, id):
     temp_obj = Template.objects.get(id=id)
-    return render(request, 'edit.html', context={'template': temp_obj})
+    scripts = temp_obj.template_scripts.all()
+    styles = temp_obj.template_styles.all()
+    print(scripts)
+    return render(request, 'edit.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
 def save_template(request, id):
-    thumbnail = Template.objects.get(id=id).thumbnail
+    template = Template.objects.get(id=id)
+    thumbnail = template.thumbnail
     user = UserProfile.objects.get(user=request.user)
     if(request.method=='POST'):
         html = request.POST['html']
@@ -31,7 +45,8 @@ def save_template(request, id):
             title=title,
             html=html,
             css=css,
-            thumbnail=thumbnail
+            thumbnail=thumbnail,
+            parent_template=template
         )
         page.save()
     return JsonResponse({ "result" : (json.loads(serialize('json', [page])))[0]})
@@ -43,11 +58,15 @@ def user_templates(request, username):
 
 def user_template_preview(request, username, id):
     temp_obj = Page.objects.get(id=id)
-    return render(request, 'preview.html', context={'template': temp_obj})
+    scripts = temp_obj.parent_template.template_scripts.all()
+    styles = temp_obj.parent_template.template_styles.all()
+    return render(request, 'preview.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
 def edit_user_template(request,username,  id):
     temp_obj = Page.objects.get(id=id)
-    return render(request, 'edit_user_template.html', context={'template': temp_obj})
+    scripts = temp_obj.parent_template.template_scripts.all()
+    styles = temp_obj.parent_template.template_styles.all()
+    return render(request, 'edit_user_template.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
 def save_user_template(request,username,  id):
     user = UserProfile.objects.get(user=request.user)
@@ -79,7 +98,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 def register_user(request):
     if request.method == "POST":
@@ -104,3 +123,6 @@ def register_user(request):
             return JsonResponse({ "result" : 'Registration Successful', 'status': 201}, status=201)
             
     return render(request, 'signup.html')
+
+def profile(request):
+    return render(request, 'profile/profile.html')

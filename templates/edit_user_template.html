@@ -58,11 +58,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><script type="text/javascript">
       var html = `{{template.html|safe}}`;
       var css = `{{template.css|striptags|safe}}`;
+      var script_links = [{% if scripts %}
+                      {% for script in scripts %}
+                          `{{ script.link }}`{% if not forloop.last %},{% endif %}
+                      {% endfor %}
+                  {% endif %}];
+      var style_links = [{% if styles %}
+                      {% for style in styles %}
+                          `{{ style.link }}`{% if not forloop.last %},{% endif %}
+                      {% endfor %}
+                  {% endif %}];
       var editor = grapesjs.init({
-        container: "#gjs",
-        plugins: ["gjs-preset-webpage"],
-        storageManager: false,
-      });
+            container: '#gjs',
+            plugins: ['gjs-preset-webpage'],
+            storageManager: false,
+            canvas: {
+              styles: [...style_links],
+                scripts: [...script_links],
+            }
+        });
       editor.setComponents(html);
       editor.setStyle(css);
       function saveContent(e) {

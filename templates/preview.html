@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+{% block css %}
+    {% if styles %}
+        {% for style in styles %}
+        <link rel="stylesheet" href="{{ style.link }}">
+        {% endfor %}
+    {% endif %}
+{% endblock css %}
 
 {% block content %}
 <style>
@@ -6,3 +13,11 @@
 </style>
 {{ template.html|safe }}
 {% endblock content %}
+
+{% block scripts %}
+    {% if scripts %}
+        {% for script in scripts %}
+            <script src="{{ script.link }}"></script>
+        {% endfor %}
+    {% endif %}
+{% endblock scripts %}

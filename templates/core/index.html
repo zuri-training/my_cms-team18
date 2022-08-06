@@ -1,0 +1,215 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}FORGE{% endblock title %}
+{% block content %}
+<section class="introduction">
+    <div class="intro-heading">
+        <span>Best ways to get ideas for your projects. Browse through
+            our already made templates now to get started.
+        </span>
+    </div>
+    <div class="intro-button">
+        <a href="" class="navbar__brand--link brand--intro-button">
+            Get Started
+        </a>
+    </div>
+    <div class="intro-paragraph">
+        <span>Effortlessly create an adventure for yourself</span>
+    </div>
+</section>
+
+{% if request.user.is_authenticated %}
+    {% if templates %}                
+        <section class="about">
+            <div class="about__template">
+                <span class="about__template--para">
+                    Your one stop for every templates you need
+                </span>
+            </div>
+            <div class="templates-grid">
+                {% for template in templates %}
+                    <div class="template-grid__box">
+                        <img class="template-grid__1" src="{{ template.thumbnail.url }}" />
+                        <div class="grid-title">
+                            <a href="{% url 'preview' template.id %}" style="text-decoration: none;" class="template-grid__title">
+                                {{ template.title }}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endif %}
+
+
+<section class="template-edition">
+    <div class="template-edition__intro">
+        <h3 class="template-edition__intro-heading">
+            Choose and edit your templates here.
+        </h3>
+        <div class="template-edition__intro-para">
+            <span>
+                You get to have complete creativity and editing rights
+                over your templates, choose the template that resonates
+                with you and personalize it to meet your needs.
+            </span>
+        </div>
+    </div>
+    <div class="template-edition__intro-image">
+        <div class="template-edition__image"></div>
+        <div class="intro-button">
+            <a href="" class="navbar__brand--link template-edition__button">
+                Get Started
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section class="template-customization">
+    <div class="centralized__template-customization">
+        <div class="template-customization__heading">
+            <span>
+                We guarantee you the best templates, to give your projects
+                the best impression.
+            </span>
+        </div>
+        <div class="template-customization__para">
+            <span>
+                Choose from 100+ customizable website templates that
+                are built to meet your project needs
+            </span>
+        </div>
+    </div>
+    <div class="templates-customization__grid">
+        {% if templates %}
+            {% for template in templates %}
+                <div class="template-grid__box">
+                    <img class="templates-customization__grid1" src="{{ template.thumbnail.url }}">
+                    <div class="grid-button">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'edit' template.id %}" class="navbar__brand--link template-customization__button">
+                                Customize Template
+                            </a>
+                        {% else %}
+                            <a href="{% url 'preview' template.id %}" class="navbar__brand--link template-customization__button">
+                                Preview Template
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+    <div class="customize-button">
+        <a href="" class="navbar__brand--link template-customization__bottom--button">
+            View More Website Templates
+        </a>
+    </div>
+</section>
+
+
+<section class="user-interface">
+    <div class="user-interface__intro--image">
+        <div class="user-interface__image"></div>
+        <div class="intro-button">
+            <a href="" class="navbar__brand--link template-edition__button">
+                Get Started
+            </a>
+        </div>
+    </div>
+    <div class="user-interface__intro">
+        <h3 class="user-interface__intro-heading">
+            Flexible Design Interface and Good User Experience.
+        </h3>
+        <div class="user-interface__intro-para">
+            <span>
+                Start from scratch or choose from 500 designer-made
+                templates that you can fully customize to your taste 
+                giving you the best experience ever. 
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial">
+    <div class="testimonial__heading">
+        <span>
+            Clients Testimonials
+        </span>
+    </div>
+
+    <div class="testimonial--flex">
+        <div class="client--testimonial--flex">
+            <div class="testimonial--flex1"></div>
+            <div class="testimonial--flex__text">
+                <span>
+                    We put our trust in Forge, because they deliver
+                    and make sure our needs are met. They also ensure
+                    that all websites are easily editable and published.
+                </span>
+            </div>
+            <div class="testimonial--flex__name">
+                <span>
+                    Uncle T.
+                </span>
+            </div>
+            <div class="testimonial--flex__position">
+                <span>
+                    Product Designer
+                </span>
+            </div>
+        </div>
+
+        <div class="client--testimonial--flex">
+            <div class="testimonial--flex2"></div>
+            <div class="testimonial--flex__text">
+                <span>
+                    We put our trust in Forge, because they deliver
+                    and make sure our needs are met. They also ensure
+                    that all websites are easily editable and published.
+                </span>
+            </div>
+            <div class="testimonial--flex__name">
+                <span>
+                    Moses A.
+                </span>
+            </div>
+            <div class="testimonial--flex__position">
+                <span>
+                    Product Designer
+                </span>
+            </div>
+        </div>
+
+        <div class="client--testimonial--flex">
+            <div class="testimonial--flex3"></div>
+            <div class="testimonial--flex__text">
+                <span>
+                    We put our trust in Forge, because they deliver
+                    and make sure our needs are met. They also ensure
+                    that all websites are easily editable and published.
+                </span>
+            </div>
+            <div class="testimonial--flex__name">
+                <span>
+                    Hercorder T.
+                </span>
+            </div>
+            <div class="testimonial--flex__position">
+                <span>
+                    Product Designer
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-button">
+        <a href="" class="navbar__brand--link template-customization__bottom--button">
+            View more testimonials 
+        </a>
+    </div>
+</section>
+{% endblock content %}

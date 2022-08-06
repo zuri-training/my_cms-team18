@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, preview_template, edit_template, save_template, user_templates, user_template_preview, edit_user_template, save_user_template, login_user, register_user, logout_user
+from .views import faq, features, index, preview_template, edit_template, profile, save_template, user_templates, user_template_preview, edit_user_template, save_user_template, login_user, register_user, logout_user
 
 urlpatterns = [
     path('', index, name="index"),
@@ -13,5 +13,9 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('sign-up/', register_user, name='register'),
     path('logout/', logout_user, name="logout"),
+    path('profile/', profile, name='profile'),
+    path('features/', features, name='features'),
+    path('faq/',faq, name='faq'),
+
     
 ]
