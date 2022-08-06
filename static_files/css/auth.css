@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 150px;
+    margin-left: 20px;
+}
+
+.logo {
+    margin-left: 300px;
+    margin-top: 40px;
+}
+
+.logo p {
+    padding-top: 10px;
+    margin-left: -110px;
+    width: 400px;
+    align-items: center;
+    text-align: center;
+    font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 30px;
+font-family: 'Montserrat', sans-serif;
+}
+
+.logo .img1 {
+    width: 450px;
+    margin-left: -130px;
+    margin-top: 30px;
+    
+}
+
+.logo button {
+    display: flex;
+    flex-direction: column;
+    background-color: #D7B9D5;
+    width: 450px;
+    height: 40px;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    border: none;
+    margin-left: -130px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo .btn1 {
+    margin-top: 50px;
+}
+
+.logo .btn2 {
+    margin-top: 10px;
+}
+
+.logo button a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+    display: flex;
+}
+
+.section {
+    margin-left: 100px;
+    margin-top: 90px;
+}
+
+.section h1 {
+    margin-left: 150px;
+    color: #436F7E;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    color: #222222;
+    font-size: small;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+    
+
+}
+
+input {
+    width: 420px;
+    height: 45px;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding: 10px 12px 10px 12px;
+
+}
+
+
+#box input {
+    width: 10px;
+    height: 10px;
+    margin-top: 15px;
+
+}
+
+#box label {
+    font-size: smaller;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+
+}
+
+#box p a {
+    text-decoration: none;
+    font-size: smaller;
+    color: #222222;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.btn3 {
+    width: 420px;
+    height: 55px;
+    margin-top: 20px;
+    background-color: #64A6BD;
+    border: none;
+}
+
+.btn3 a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.account {
+    display: flex;
+    font-size: small;
+    margin-top: 20px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.account a {
+    color: #222222;
+    padding-left: 5px;
+}
+
+.para {
+    font-size: small;
+    width: 350px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 30px;
+    margin-left: 35px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pass { 
+    margin-top: 15px; 
+}
+
+.head {
+    margin-top: -50px;
+}
+
+
+@media ( max-width :996px){
+    .logo {
+        margin-left: 70px;
+    }
+
+    .logo img {
+        margin-left: 55px;
+    }
+    .logo p {
+        padding-top: 10px;
+        margin-left: -25px;
+        width: 300px;
+        align-items: center;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .logo .img1 {
+        width: 350px;
+        margin-left: -49px;
+    }
+
+    .logo .btn1 {
+        width: 347px;
+        margin-left: -47px;
+    }
+
+    .logo .btn2 {
+        width: 347px;
+        margin-left: -47px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section {
+        margin-left: 10px;
+    }
+
+    .section h1 {
+        margin-left: 131px;
+    }
+
+    .section .form input {
+        width: 340px;
+    }
+
+    .section .form {
+        margin-left: 20px;
+    }
+
+    #box {
+        width: 330px;
+        margin-left: 23px;
+    }
+
+     .btn3 {
+        width: 336px;
+        margin-left: -2px;
+    }
+
+    .para {
+        margin-left: 16px;
+    }
+    
+}

@@ -37,14 +37,16 @@
   </div>
     <div class="main">
       <div class="logo">
+        <a href="/">
         <img src="{% static 'images/Group 271.png' %}" alt="" />
+        </a>
         <p>
           We guarantee you the best template, to give your project the best
           impression
         </p>
         <img class="img1" src="{% static 'images/Image.png' %}" alt="picture" /><br />
 
-        <a href="{% provider_login_url 'google' %}" style="text-decoration: none;"><button class="btn1">Sign up with Google</button></a>
+        <a href="{% provider_login_url 'google' %}" style="text-decoration: none;"><button class="btn1">Sign in with Google</button></a>
         <a href="{% provider_login_url 'facebook' method='oauth2' %}" style="text-decoration: none;"><button class="btn2">Sign in with Facebook</button></a>
        </div>
 

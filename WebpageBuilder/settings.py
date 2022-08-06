@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     # "sslserver",
-    # 'django_extensions', 
+    # 'django_extensions',
     'django.contrib.sites',
 
     'allauth',
