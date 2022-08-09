@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rj7fd3do=ba@_x=&ix=343k7g7#3nvr4d3r7)q(do*@ns$)1#x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -168,4 +168,5 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = "/login/"
 SOCIALACCOUNT_LOGIN_ON_GET=True

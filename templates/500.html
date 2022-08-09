@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500</title>
+    <link rel="stylesheet" href="{% static 'css/error500.css' %}">
+</head>
+<body>
+    <main class="container">
+        <div class="error-content">
+            <div class="error-image">
+                <img src="{% static 'images/500 Text.png' %}" alt="" width="450">
+            </div>
+            <div class="error-text">
+                <p class="error-text--heading">
+                    Service Unavailable
+                </p>
+                <p class="error-text--para">
+                    This service is temporarily busy, try again later!
+                </p>
+            </div>
+            <div class="error-btn">
+                <button class="error-button">
+                    <a href="{% url 'index' %}" class="error-link">Back to landing page</a>
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

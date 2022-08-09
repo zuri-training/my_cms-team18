@@ -1,0 +1,63 @@
+<section class="header-section">
+    <header class="navbar">
+        <div class="navbar__brand--logo">
+            <a href="" class="brand--logo"></a>
+        </div>
+        <div class="navbar__brand--middle">
+            <ul class="navbar__brand--item">
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">Create
+                        <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
+                    style="padding: 2px 2px;">
+                    </a>
+                </li>
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">Build 
+                        <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
+                    style="padding: 2px 2px;">
+                    </a>
+                </li>
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">Develop 
+                        <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
+                    style="padding: 2px 2px;">
+                    </a>
+                </li>
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">Resources 
+                        <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
+                    style="padding: 2px 2px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar__brand">
+            <ul class="navbar__brand--item">
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">About Us</a>
+                </li>
+                <li class="navbar__brand--list">
+                    <a href="" class="navbar__brand--link">Support</a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="navbar__brand--list">
+                    <a href="{% url 'logout' %}" class="navbar__brand--link brand--button">
+                        Log Out
+                    </a>
+                </li>
+                {% else %}
+                <li class="navbar__brand--list">
+                    <a href="{% url 'login' %}" class="navbar__brand--link brand--button">
+                        Sign In
+                    </a>
+                </li>
+                <li class="navbar__brand--list">
+                    <a href="{% url 'register' %}" class="navbar__brand--link brand--button">
+                        Sign Up
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+</section>

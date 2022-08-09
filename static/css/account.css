@@ -1,0 +1,254 @@
+/* ACCOUNTS */
+main{
+    display: flex;
+    flex-direction: row;
+}
+.icons-section{
+    background-color: #436F7E;
+    width: 95px;
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    margin: 9px 30px 0px 30px;    
+}
+.icon-set{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 36.55px 32.85px 0px 33px ;
+    align-content: center;
+    padding: 0px;
+    gap: 98.73px;
+    position: relative;
+}
+.last-icon{
+    margin: 402.35px 37.25px 0px 37px;
+}
+.settings-part{
+    width: 300px;
+    background-color: #F7F1F7;
+}
+.settings-part :active{
+    background-color:rgba(100, 166, 189, 0.2);
+}
+.item1{
+    height: 80px;
+    padding: 10px 171px 22px 10px;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+}
+hr{
+    background-color: #DAE2EB;
+    border: 1px solid #CCCCCC;
+}
+.item2{
+    padding: 16px 58px 25px 26px;
+}
+.joint{
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+}
+.joint a{
+    text-decoration: none;
+    color: #000000;
+}
+.altgda{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+}
+.item3{
+    padding: 21px 90px 41px 26px;
+}
+.item4{
+    padding: 15px 66px 44px 26px;
+}
+.item5{
+    padding: 17px 77px 45px 26px;
+}
+.Details{
+    padding: 22px 44px 26px 60px;
+}
+.top{
+    padding-top:8px;
+    padding-bottom: 8px;
+    color: #436F7E;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    justify-self: center;
+}
+.next{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #3A3843;
+    margin-top: 28px;
+}
+.togeda{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 36px;
+
+}
+.form{
+    margin-top: 26px;
+}
+label{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #3A3843;
+    padding: 5px 0px 5px 0px;
+}
+input{
+    background: #EEF1F4;
+    border: 1px solid rgba(102, 112, 128, 0.5);
+    border-radius: 6px;
+    width: 345px;
+    height: 40px;
+    padding: 13px 12px 5px 12px;
+}
+.form-items{
+    gap: 46px;
+}
+#firstname{
+    position: relative;
+    left: 0px;
+    bottom: 0px;
+
+}
+#name{
+    position: relative;
+    left: 40px;
+    top: -43px;
+}
+#lastName{
+    position: relative;
+    left: 388px;
+    top: -40px;  
+}
+#dispName{
+    position: relative;
+    left: 0px;
+    bottom: 0px;
+}
+.photo{
+    margin: 35px 692px 10px 17px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px; 
+}
+.third-items{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+    margin-bottom: 23px;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+}
+.buth{
+    gap: 10px;
+}
+.change{
+    width: 176px;
+    background: #64A6BD;
+    border-radius: 4px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    align-items: center;
+}
+.remove{
+    width: 123px;
+    height: 48px;
+    border: 1px solid #64A6BD;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #64A6BD;
+}
+.third-details hr{
+    border: 1px solid #D6D3E4;
+}
+.personal-data{
+    margin-top: 26px;
+}
+.ph_nos{
+    position: relative;
+    left: 40px;
+    top: -42px; 
+}
+#ph_nos{
+    position: relative;
+    left: 388px;
+    top: -40px;  
+}
+.options{
+    margin-top: 41px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #3A3843;
+    font-weight: 400;
+}
+.options label{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #3A3843;
+    padding: 5px 0px 5px 0px;
+}
+.options select{
+    background: #EEF1F4;
+    border: 1px solid rgba(102, 112, 128, 0.5);
+    border-radius: 6px;
+    width: 345px;
+    height: 40px;
+    padding: 13px 12px 5px 12px;
+}
+.lang{
+    position: relative;
+    left: 40px;
+    top: -42px; 
+}
+#lang{
+    position: relative;
+    left: 388px;
+    top: -40px; 
+}
+.options hr{
+    border: 1px solid #D6D3E4;
+}
+.btn{
+    margin-top: 28.51px ;
+    gap: 10px;
+    float: right;
+}
+#reset{
+    background-color: white;
+    width: 166px;
+    height: 50px;
+    border: 1px solid #436F7E;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #436F7E;
+}
+#submit{
+    width: 166px;
+    height: 50px;
+    background-color: #64A6BD;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #F7F1F7;
+}
