@@ -1,5 +1,6 @@
 from ensurepip import bootstrap
 from re import template
+from turtle import title
 from django.shortcuts import redirect, render
 from django.http import JsonResponse
 from .models import Template, UserProfile, Page
@@ -8,6 +9,7 @@ from django.contrib.auth.models import User
 import json
 from django.contrib.auth import authenticate, login, logout
 from .validator import registration_validation
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     templates = Template.objects.all()
@@ -25,13 +27,14 @@ def preview_template(request, id):
     styles = temp_obj.template_styles.all()
     return render(request, 'preview.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
+@login_required
 def edit_template(request, id):
     temp_obj = Template.objects.get(id=id)
     scripts = temp_obj.template_scripts.all()
     styles = temp_obj.template_styles.all()
-    print(scripts)
     return render(request, 'edit.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
+@login_required
 def save_template(request, id):
     template = Template.objects.get(id=id)
     thumbnail = template.thumbnail
@@ -51,23 +54,27 @@ def save_template(request, id):
         page.save()
     return JsonResponse({ "result" : (json.loads(serialize('json', [page])))[0]})
 
+@login_required
 def user_templates(request, username):
     user = UserProfile.objects.get(user=request.user)
     templates = Page.objects.all().filter(user=user)
     return render(request, 'user_templates.html', context={'templates': templates})
 
+@login_required
 def user_template_preview(request, username, id):
     temp_obj = Page.objects.get(id=id)
     scripts = temp_obj.parent_template.template_scripts.all()
     styles = temp_obj.parent_template.template_styles.all()
     return render(request, 'preview.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
+@login_required
 def edit_user_template(request,username,  id):
     temp_obj = Page.objects.get(id=id)
     scripts = temp_obj.parent_template.template_scripts.all()
     styles = temp_obj.parent_template.template_styles.all()
     return render(request, 'edit_user_template.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
 
+@login_required
 def save_user_template(request,username,  id):
     user = UserProfile.objects.get(user=request.user)
     if(request.method=='POST'):
@@ -124,5 +131,29 @@ def register_user(request):
             
     return render(request, 'signup.html')
 
-def profile(request):
-    return render(request, 'profile/profile.html')
+@login_required
+def blank(request):
+    temp_obj = Template.objects.get(title="Blank Page")
+    scripts = temp_obj.template_scripts.all()
+    styles = temp_obj.template_styles.all()
+    return render(request, 'edit.html', context={'template': temp_obj, 'scripts':scripts, 'styles':styles})
+
+@login_required
+def account(request, username):
+    user = User.objects.get(username=username)
+    return render(request, 'core/account.html', context={'user': user})
+
+def contact(request, username):
+    return render(request, 'core/contact.html')
+
+def handler401(request, exception):
+    return render(request, 'errors/401.html', status=400)
+
+def handler403(request, exception=None):
+    return render(request, 'errors/403.html', status=403)
+
+def handler404(request, exception=None):
+    return render(request, 'errors/404.html', status=404)
+
+def handler500(request, exception=None):
+    return render(request, 'errors/500.html', status=500)

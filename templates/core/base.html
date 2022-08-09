@@ -1,11 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <title>{% block title %}{% endblock title %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,214 +14,502 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
-     href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-     rel="stylesheet">
-</head>
-<body>
-    <main class="container">
-        <section class="header-section">
-            <header class="navbar">
-                <div class="navbar__brand--logo">
-                    <a href="" class="brand--logo"></a>
-                </div>
-                <div class="navbar__brand--middle">
-                    <ul class="navbar__brand--item">
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">Create
-                                <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
-                            style="padding: 2px 2px;">
-                            </a>
-                        </li>
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">Build 
-                                <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
-                            style="padding: 2px 2px;">
-                            </a>
-                        </li>
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">Develop 
-                                <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
-                            style="padding: 2px 2px;">
-                            </a>
-                        </li>
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">Resources 
-                                <img src="{% static 'images/Vector.png' %}" alt="drop-down" 
-                            style="padding: 2px 2px;">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar__brand">
-                    <ul class="navbar__brand--item">
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">About Us</a>
-                        </li>
-                        <li class="navbar__brand--list">
-                            <a href="" class="navbar__brand--link">Support</a>
-                        </li>
-                        {% if request.user.is_authenticated %}
-                        <li class="navbar__brand--list">
-                            <a href="{% url 'logout' %}" class="navbar__brand--link brand--button">
-                                Log Out
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="navbar__brand--list">
-                            <a href="{% url 'login' %}" class="navbar__brand--link brand--button">
-                                Sign In
-                            </a>
-                        </li>
-                        <li class="navbar__brand--list">
-                            <a href="{% url 'register' %}" class="navbar__brand--link brand--button">
-                                Sign Up
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </header>
-        </section>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="container__">
+      <section class="header-section">
+        <header class="navbar">
+          <div class="navbar__brand--logo">
+            <a href="" class="brand--logo"> </a>
+          </div>
 
-        {% block content %}
-        
-
-        {% endblock content %}
-        <section class="footer--section">
-            <div class="footer--section__flex">
-
-                <div class="footer--section__products">
-                    <span class="footer--section__header">
-                        Products
-                    </span>
-                    <ul class="footer--section__items">
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Templates
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Websites
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="{% url 'features' %}" class="footer--section__link">
-                                Features
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer--section__products">
-                    <span class="footer--section__header">
-                        Explore
-                    </span>
-                    <ul class="footer--section__items">
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Website Builder
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Activity
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Recent Posts
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer--section__products">
-                    <span class="footer--section__header">
-                        About Forge
-                    </span>
-                    <ul class="footer--section__items">
-                        <li class="footer--section__list">
-                            <a href="{% url 'faq' %}" class="footer--section__link">
-                                FAQs
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Privacy Policy
-                            </a>
-                        </li>
-                        <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
-                                Terms of Use
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer--section__brand">
-                    <div class="footer--logo">
-                        <a href="" class="footer--section__brand--logo"></a>
+          <div class="navbar__brand--middle">
+            <main class="navbar__brand--item">
+              <div class="navbar__brand--list">
+                <button class="nav-btn">
+                  Create
+                  <img
+                    src="{% static 'images/Vector.png' %}"
+                    alt=""
+                    class="vector"
+                  />
+                </button>
+                <main class="dropdown" id="dropdown">
+                  <div class="dropdown-list">
+                    <div class="drop-content">
+                      <div class="first-content">
+                        <a href="" class="content-link">
+                          <div class="content-heading">
+                            <span>Website Templates</span>
+                          </div>
+                          <div class="content-para">
+                            <span>
+                              Discover ways and ideas on how to create the
+                              website of your choice.
+                            </span>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="content">
+                        <a href="" class="content-link">
+                          <div class="content-heading">
+                            <span>Photography Templates</span>
+                          </div>
+                          <div class="content-para">
+                            <span>
+                              Click here to view all trendy photograph templates
+                              available.
+                            </span>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                    <div class="footer--section__para">
-                        <span>
-                            Forge gives users access to create, personalized, 
-                            edit the functionally and usability of any website 
-                            of their choice through our given templates.
-                        </span>
+                    <div class="hoz-line"></div>
+                    <div class="drop-content">
+                      <div class="second-content">
+                        <a href="" class="content-link">
+                          <div class="content-heading">
+                            <span>Portfolio Templates</span>
+                          </div>
+                          <div class="content-para">
+                            <span>
+                              Click here to view all trendy portfolio templates
+                              available.
+                            </span>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="content">
+                        <a href="" class="content-link">
+                          <div class="content-heading">
+                            <span>Education Templates</span>
+                          </div>
+                          <div class="content-para">
+                            <span>
+                              Click here to view all trendy education templates
+                              available.
+                            </span>
+                          </div>
+                        </a>
+                      </div>
                     </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Blog Templates</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Click here to view all trendy blog <br />
+                            templates available.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line1"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Business Templates</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Click here to view all trendy business <br />
+                            templates available.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+              <div class="navbar__brand--list">
+                <button class="nav-btn">
+                  Build
+                  <img
+                    src="{% static 'images/Vector.png' %}"
+                    alt=""
+                    class="vector"
+                  />
+                </button>
+                <main class="dropdown1" id="dropdown">
+                  <div class="dropdown-list">
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Professional Portfolio</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Find everything you need to build your own
+                            professional portfolio.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Custom Domains</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Find everything you need to build your own custom
+                            domains.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Logo Maker</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Find everything you need to build your own logo
+                            maker.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>SEO Tools</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Find everything you need to build your own SEO
+                            tools.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+              <div class="navbar__brand--list">
+                <button class="nav-btn">
+                  Develop
+                  <img
+                    src="{% static 'images/Vector.png' %}"
+                    alt=""
+                    class="vector"
+                  />
+                </button>
+                <main class="dropdown1" id="dropdown">
+                  <div class="dropdown-list">
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>All Posts and Tools</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Find everything you need to build your own website
+                            to your taste.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Explore</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Explore over 100 ready-made templates, and start
+                            with the right one for you.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Learn More</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Click here to learn how to navigate through the
+                            websites.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+              <div class="navbar__brand--list">
+                <button class="nav-btn">
+                  Resources
+                  <img
+                    src="{% static 'images/Vector.png' %}"
+                    alt=""
+                    class="vector"
+                  />
+                </button>
+                <main class="dropdown1" id="dropdown">
+                  <div class="dropdown-list">
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Customize your website</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Pick a template and customize anything, get a free
+                            website designed just for you.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Custom Build</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Build and customize your own website from scratch
+                            with your own style and and tools.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="hoz-line"></div>
+                    <div class="content">
+                      <a href="" class="content-link">
+                        <div class="content-heading">
+                          <span>Blog Features and Effects</span>
+                        </div>
+                        <div class="content-para">
+                          <span>
+                            Start your own blog, add an online store and accept
+                            bookings online.
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+            </main>
+          </div>
+          <div class="navbar__brand" style="margin-top: 15px;">
+            <ul class="navbar__brand--item">
+              <li class="navbar__brand--list">
+                <a href="" class="navbar__brand--link">About Us</a>
+              </li>
+              <li class="navbar__brand--list">
+                <a href="{% url 'contact' %}" class="navbar__brand--link">Contact Us</a>
+              </li>
+              {% if request.user.is_authenticated %}
+              <li class="navbar__brand--list">
+                <a href="" class="navbar__brand--link"
+                  >Hi! {{request.user.username}}</a>
+              </li>
+              <div class="">
+                <div class="row">
+                     <div class="col-lg-12">
+                   <div class="button-group">
+                      <div type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="border: none; background-color: transparent; margin-top: -5px;"> <span class="caret"></span></div>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="small" data-value="option1" tabIndex="-1">My Templates</a></li>
+                            <li><a href="{% url 'account' request.user.username %}" class="small" data-value="option1" tabIndex="-1">Account Settings</a></li>
+                        </ul>
                 </div>
+              </div>
+                </div>
+              </div>
+              <li class="navbar__brand--list">
+                <a
+                  href="{% url 'logout' %}"
+                  class="navbar__brand--link brand--button"
+                >
+                  Log Out
+                </a>
+              </li>
+              {% else %}
+              <li class="navbar__brand--list">
+                <a
+                  href="{% url 'login' %}"
+                  class="navbar__brand--link brand--button"
+                >
+                  Sign In
+                </a>
+              </li>
+              <li class="navbar__brand--list">
+                <a
+                  href="{% url 'register' %}"
+                  class="navbar__brand--link brand--button"
+                >
+                  Sign Up
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </header>
+      </section>
+
+      {% block content %} {% endblock content %}
+      <section class="footer--section">
+        <div class="footer--section__flex">
+          <div class="footer--section__products">
+            <span class="footer--section__header"> Products </span>
+            <ul class="footer--section__items">
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Templates </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Websites </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="{% url 'features' %}" class="footer--section__link">
+                  Features
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer--section__products">
+            <span class="footer--section__header"> Explore </span>
+            <ul class="footer--section__items">
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Website Builder </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Activity </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Recent Posts </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer--section__products">
+            <span class="footer--section__header"> About Forge </span>
+            <ul class="footer--section__items">
+              <li class="footer--section__list">
+                <a href="{% url 'faq' %}" class="footer--section__link">
+                  FAQs
+                </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Privacy Policy </a>
+              </li>
+              <li class="footer--section__list">
+                <a href="" class="footer--section__link"> Terms of Use </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer--section__brand">
+            <div class="footer--logo">
+              <a href="" class="footer--section__brand--logo"></a>
             </div>
-
-            <div class="footer--section__flex2">
-                <div class="footer--section__subscribe">
-                    <div class="footer--section__subscribe--letter">
-                        <span>
-                            Subscribe to our NewsLetter
-                        </span>
-                    </div>
-                    <div class="footer--section__subscribe--input">
-                        <input type="email" class="footer--section__input"
-                        name="email" placeholder="Enter your email address">
-                        
-                        <input type="submit" class="footer--section__button"
-                        value="Subscribe"/>
-                    </div>
-                </div>
-                <div class="footer--section__connect">
-                    <div class="footer--section__connect--heading">
-                        <span>
-                            Connect With Us
-                        </span>
-                    </div>
-                    <div class="footer--section__icons">
-                        <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons1--link"></a>
-                        </div>
-                        <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons2--link"></a>
-                        </div>
-                        <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons3--link"></a>
-                        </div>
-                        <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons4--link"></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer--section__para">
+              <span>
+                Forge gives users access to create, personalized, edit the
+                functionally and usability of any website of their choice
+                through our given templates.
+              </span>
             </div>
-        </section>
+          </div>
+        </div>
 
-        
-        <section class="rights">
-            <div class="right-reserved">
-                <span>
-                    All rights reserved @Forge2022
-                </span>
+        <div class="footer--section__flex2">
+          <div class="footer--section__subscribe">
+            <div class="footer--section__subscribe--letter">
+              <span> Subscribe to our NewsLetter </span>
             </div>
-        </section>
+            <div class="footer--section__subscribe--input">
+              <input
+                type="email"
+                class="footer--section__input"
+                name="email"
+                placeholder="Enter your email address"
+              />
+
+              <input
+                type="submit"
+                class="footer--section__button"
+                value="Subscribe"
+              />
+            </div>
+          </div>
+          <div class="footer--section__connect">
+            <div class="footer--section__connect--heading">
+              <span> Connect With Us </span>
+            </div>
+            <div class="footer--section__icons">
+              <div class="footer--section__icons">
+                <a href="" class="footer--section__icons1--link"></a>
+              </div>
+              <div class="footer--section__icons">
+                <a href="" class="footer--section__icons2--link"></a>
+              </div>
+              <div class="footer--section__icons">
+                <a href="" class="footer--section__icons3--link"></a>
+              </div>
+              <div class="footer--section__icons">
+                <a href="" class="footer--section__icons4--link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rights">
+        <div class="right-reserved">
+          <span> All rights reserved @Forge2022 </span>
+        </div>
+      </section>
     </main>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+      var options = [];
+        console.log("me")
+$( '.dropdown-menu a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = options.indexOf( val ) ) > -1 ) {
+      options.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      options.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+      
+   console.log( options );
+});
+    </script>
+  </body>
 </html>

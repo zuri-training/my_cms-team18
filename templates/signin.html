@@ -125,6 +125,9 @@
           mode: "same-origin", // Do not send CSRF token to another domain.
           body: formData,
         });
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const next = urlParams.get('next') 
         fetch(request)
           .then((resp) => resp.json())
           .then((response) => {
@@ -137,8 +140,13 @@
               $("#successModal").modal("show");
               setTimeout(() => {
                 $("#successModal").modal("hide");
-                window.location = `{% url 'index' %}`;
-              }, 1600);
+                if (next){
+                  window.location.href = next
+                }
+                else{
+                  window.location = `{% url 'index' %}`;
+                }
+              }, 1600); 
               
             }
           });

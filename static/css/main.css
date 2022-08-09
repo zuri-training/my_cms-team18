@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.container {
+.container_ {
     background: #FFFFFF;
     font-family: 'Montserrat';
     color: rgba(34, 34, 34, 0.8);
@@ -41,6 +41,105 @@
 .navbar__brand--middle {
     margin-left: 15%;
 }
+
+.nav-btn {
+    text-decoration: none;
+    line-height: 20px;
+    font-size: 16px;
+    transition: .5s;
+    color: #222222;
+    font-family: 'Montserrat';
+    margin-left: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #E0EDF2;
+}
+
+.dropdown {
+    background-color: #FFFFFF;
+    width: 50%;
+    position: absolute;
+    top: 60px;
+    display: none;
+    box-shadow: 0px 6px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown1 {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 60px;
+    width: 27%;
+    display: none;
+    box-shadow: 0px 6px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navbar__brand--list:hover .dropdown,
+.navbar__brand--list:hover .dropdown1 {
+    display: block;
+}
+
+.dropdown-list {
+    padding: 4%;  
+    display: block;
+}
+
+.drop-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-content {
+    padding-right: 8%;
+    padding-left: 2%;
+}
+
+.second-content {
+    padding-right: 15%;
+    padding-left: 2%;
+}
+
+.content {
+    padding-left: 2%;
+}
+
+.content-heading {
+    padding-top: 10px;
+    font-size: 16px;
+    padding-bottom: 15px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.content-para {
+    font-size: 15px;
+    padding-bottom: 14px;
+    line-height: 20px;
+}
+
+.content-link {
+    text-decoration: none; 
+    color: #222222;
+}
+
+.content-link:hover {
+    color: #64A6BD;
+}
+
+.hoz-line {
+    border: 0.5px solid #64A6BD;
+    margin-top: 2%;
+}
+
+.hoz-line1 {
+    border: 0.5px solid #64A6BD;
+    margin-top: 2%;
+    width: 45%;
+}
+
 
 .navbar__brand--item {
     display: flex;
@@ -984,3 +1083,5 @@
   .item6 img{
     padding: 0px 0px 32px 0px;
   }
+
+

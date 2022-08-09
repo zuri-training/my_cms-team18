@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Account Settings</title>
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+
+        <section class="icons-section">
+            <div class="logo">
+                <img src="{% static 'images/FORGE2 1.png' %}" alt="logo">
+            </div>
+            <div class="icon-set">
+                <a href="#"><img src="{% static 'images/icon.png' %}" alt="profile_icon"></a>
+                <a href="#"><img src="{% static 'images/icon2.png' %}" alt="dashboard_icon"></a>
+                <a href="#"><img src="{% static 'images/icon3.png' %}" alt="folder_icon"></a>
+                <a href="#"><img src="{% static 'images/icon4.png' %}" alt="pop_icon"></a>
+            </div>
+            <div class="last-icon">
+                <a href="#"><img src="{% static 'images/icon5.png' %}" alt="help_icon"></a>
+            </div>
+        </section>
+
+        <section class="settings-part">
+
+        
+            <div class="item1">
+                <p>Settings</p>
+            </div><hr>
+
+            <div class="item2">
+                <p class="joint"><a href="#">Account</a></p>
+                <p class="altgda">View and update your account details,
+                    profile and more
+                </p></div><hr>
+            </div>
+           
+            <div class="item3">
+                <p class="joint"><a href="#">Notification</a></p>
+                <p class="altgda">Control your notification settings</p>
+            </div><hr>
+
+            <div class="item4">
+                <p class="joint"><a href="#">Login & Security</a></p>
+                <p class="altgda">Manage your site’s login and security</p>
+            </div><hr>
+
+            <div class="item5">
+                <p class="joint"><a href="#">Website settings</a></p>
+                <p class="altgda">Manage your site’s name and more</p>
+            </div><hr>
+
+        </section>
+
+        <section class="Details">
+
+            <p class="top">Account</p>
+
+            <div>
+                <p class="next">Profile</p>
+                <p class="togeda">This information will be displayed publicly so be careful what you share.</p>
+                
+                <div class="form">
+                    <form action="get"></form>
+                        <div class="form-items">
+                            <label for="firstName" class="first">Username</label><br>
+                            <input type="text" id="firstname" value="{{user.username}}" name="firstName" disabled>
+                        </div>
+                        <label for="dispName" id="dispName" class="first">Email</label><br>
+                        <input type="text" id="dispName" value="{{user.email}}" name="dispName" disabled>
+                    </form>
+                </div>
+                
+            </div>
+
+            <div class="third-details">
+                <p class="photo">Photo</p>
+                <div class="third-items">
+                    <img src="{% static 'images/Group 427320632.png' %}" alt="photo">
+                    <div class="buth">
+                    <button class="change" type="button">Change</button>
+                    <button class="remove" type="button">Remove</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="bottom-part">
+                <div>
+                    <p class="next">Personal information</p>
+                    <p class="togeda">This information will be displayed publicly so be careful what you share.</p>
+                </div>
+
+                <div class="personal-data">
+                    <label for="" class="email">Email address</label><br>
+                    <input type="email" id="email" value="{{user.username}}" name="email" disabled>
+
+                    <label for="ph_nos" class="ph_nos">Phone number</label><br>
+                    <input type="tel" id="ph_nos" name="ph_nos" disabled>
+
+                </div>
+
+                <div class="options">
+                    <label for="country" class="country">Country</label><br>
+                    <select name="country" id="country">
+                        <option value=""></option>
+                        <option value="#">Italy</option>
+                        <option value="#">Greece</option>
+                        <option value="#">England</option>
+                        <option value="#">Brazil</option>
+                        <option value="xx">Gambia</option>
+                        <option value="xxx">Nigeria</option>
+                    </select>
+
+                    <label for="lang" class="lang">Language</label><br>
+                    <select name="lang" id="lang">
+                        <option value=""></option>
+                        <option value="#">English</option>
+                        <option value="#">Yoruba</option>
+                        <option value="#">Igbo</option>
+                        <option value="#">Francais</option>
+                        <option value="xx">Mandarin</option>
+                        <option value="xxx">Dutch</option>
+                    </select>
+                    <hr>
+                </div>
+
+                <div class="btn">
+                    <button type="reset" id="reset">Cancel</button>
+                    <button type="submit" id="submit">Save</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    
+</body>
+
+
+</html>

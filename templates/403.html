@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403</title>
+    <link rel="stylesheet" href="{% static 'css/error403.css' %}">
+</head>
+<body>
+    <main class="container">
+        <div class="error-content">
+            <div class="error-image">
+                <img src="{% static 'images/Group 427320633.png' %}" alt="" width="260px">
+            </div>
+            <div class="error-text">
+                <p class="error-text--heading">
+                    Forbidden!
+                </p>
+                <p class="error-text--para">
+                    Access to the resources on the server is denied!
+                </p>
+            </div>
+            <div class="error-btn">
+                <button class="error-button">
+                    <a href="{% url 'index' %}" class="error-link">Back to landing page</a>
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
