@@ -145,3 +145,9 @@ def account(request, username):
 
 def contact(request):
     return render(request, 'core/contact.html')
+
+def postpage(request):
+    return render(request, 'core/postpage.html')
+
+def termsofservice(request):
+    return render(request, 'core/termsofservice.html')
