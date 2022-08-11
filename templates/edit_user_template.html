@@ -57,7 +57,10 @@
     </div>
     <nav class="navbar bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand">Edit Template</a>
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'images/Group 271.png' %}" alt="" width="80" height="24" class="d-inline-block align-text-top mt-1">
+        </a>
+        <span style="font-size: large;">Edit Template</span>
         <form class="d-flex" role="search" onsubmit="saveContent(event)">
           {% csrf_token %}
           <input

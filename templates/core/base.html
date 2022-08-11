@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <title>{% block title %}{% endblock title %}</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    {% endblock css %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,13 +24,15 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <body>
     <main class="container__">
+      {% block nav %}
       <section class="header-section">
         <header class="navbar">
           <div class="navbar__brand--logo">
-            <a href="" class="brand--logo"> </a>
+            <a href="/" class="brand--logo"> </a>
           </div>
 
           <div class="navbar__brand--middle">
@@ -332,7 +336,8 @@
                    <div class="button-group">
                       <div type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="border: none; background-color: transparent; margin-top: -5px;"> <span class="caret"></span></div>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="small" data-value="option1" tabIndex="-1">My Templates</a></li>
+                            <li><a href="{% url 'user_templates' request.user.username %}" class="small" data-value="option1" tabIndex="-1">My Templates</a></li>
+                            <li><a href="{% url 'templates' %}" class="small" data-value="option1" tabIndex="-1">Templates</a></li>
                             <li><a href="{% url 'account' request.user.username %}" class="small" data-value="option1" tabIndex="-1">Account Settings</a></li>
                         </ul>
                 </div>
@@ -369,125 +374,73 @@
           </div>
         </header>
       </section>
+      {% endblock nav %}
 
       {% block content %} {% endblock content %}
-      <section class="footer--section">
-        <div class="footer--section__flex">
-          <div class="footer--section__products">
-            <span class="footer--section__header"> Products </span>
-            <ul class="footer--section__items">
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Templates </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Websites </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="{% url 'features' %}" class="footer--section__link">
-                  Features
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer--section__products">
-            <span class="footer--section__header"> Explore </span>
-            <ul class="footer--section__items">
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Website Builder </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Activity </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Recent Posts </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer--section__products">
-            <span class="footer--section__header"> About Forge </span>
-            <ul class="footer--section__items">
-              <li class="footer--section__list">
-                <a href="{% url 'faq' %}" class="footer--section__link">
-                  FAQs
-                </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Privacy Policy </a>
-              </li>
-              <li class="footer--section__list">
-                <a href="" class="footer--section__link"> Terms of Use </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer--section__brand">
-            <div class="footer--logo">
-              <a href="" class="footer--section__brand--logo"></a>
+      {% block footer %}
+      <footer style="margin-top: 20rem;">
+        <div class="footer-details">
+            <div class="items item1">
+                <nav class="footer-nav-bar">
+                    <div>
+                      <a href="{% url 'post_page' %}"><strong>Products</strong></a>
+                      <a href="{% url 'templates' %}">Templates</a>
+                      <a href="{% url 'templates' %}">Websites</a>
+                      <a href="{% url 'features' %}">Features</a>
+                    </div>
+                    <div>
+                      <a href="../Documentation page/docs.html"><strong>Documentation</strong></a>
+                      <a href="{% url 'blank' %}">Website Builder</a>
+                      <a href="#">Activity</a>
+                      <a href="{% url 'post_page' %}">Recent Posts</a>
+                    </div>
+                    <div>
+                      <a href="#"><strong>About Forge</strong></a>
+                      <a href="{% url 'faq' %}">FAQs</a>
+                      <a href="../terms_of_services_page/termsOfServices.html">Privacy Policy</a>
+                      <a href="{% url 'terms_page' %}">Terms of Use</a>
+                    </div>
+                  </nav>
+                <div class="flex-2">
+                    <img src="{% static 'images/Group 270.png' %}" alt="Forge logo">
+                    <p>
+                        Forge gives users access to create, personalize,
+                        edit the functionality and usability of any website of 
+                        their choice through our given templates.
+                    </p>
+                </div>
             </div>
-            <div class="footer--section__para">
-              <span>
-                Forge gives users access to create, personalized, edit the
-                functionally and usability of any website of their choice
-                through our given templates.
-              </span>
+            <div class="items item2">
+                <div class="flex-3">
+                    <h2>Subscribe to our Newsletter</h2>
+                    <form action="#" class="footer-form">
+                        <input type="email" id="subscriber"
+                         placeholder="Enter your email address">
+                        <button class="sub-btn" type="buttton">Subscribe</button>
+                    </form>
+                </div>
+                <div class="flex-4">
+                    <h2>Connect with us</h2>
+                    <div class="social-links">
+                        <a href="#"><img src="{% static 'images/twitter icon.png' %}" alt="Twitter"></a>
+                        <a href="#"><img src="{% static 'images/instagram icon.png' %}" alt="Instagram"></a>
+                        <a href="#"><img src="{% static 'images/Linkedin icon.png' %}" alt="LinkedIn"></a>
+                        <a href="#"><img src="{% static 'images/facebook icon.png' %}" alt="Facebook"></a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="footer--section__flex2">
-          <div class="footer--section__subscribe">
-            <div class="footer--section__subscribe--letter">
-              <span> Subscribe to our NewsLetter </span>
-            </div>
-            <div class="footer--section__subscribe--input">
-              <input
-                type="email"
-                class="footer--section__input"
-                name="email"
-                placeholder="Enter your email address"
-              />
-
-              <input
-                type="submit"
-                class="footer--section__button"
-                value="Subscribe"
-              />
-            </div>
-          </div>
-          <div class="footer--section__connect">
-            <div class="footer--section__connect--heading">
-              <span> Connect With Us </span>
-            </div>
-            <div class="footer--section__icons">
-              <div class="footer--section__icons">
-                <a href="" class="footer--section__icons1--link"></a>
-              </div>
-              <div class="footer--section__icons">
-                <a href="" class="footer--section__icons2--link"></a>
-              </div>
-              <div class="footer--section__icons">
-                <a href="" class="footer--section__icons3--link"></a>
-              </div>
-              <div class="footer--section__icons">
-                <a href="" class="footer--section__icons4--link"></a>
-              </div>
-            </div>
-          </div>
+        <div class="rights">
+            <p>All Rights reserved &#64;Forge2022</p>
         </div>
-      </section>
-
-      <section class="rights">
-        <div class="right-reserved">
-          <span> All rights reserved @Forge2022 </span>
-        </div>
-      </section>
+    </footer>
+    {% endblock footer %}
     </main>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% block script %}
     <script>
       var options = [];
         console.log("me")
@@ -510,6 +463,8 @@ $( '.dropdown-menu a' ).on( 'click', function( event ) {
       
    console.log( options );
 });
+
     </script>
+  {% endblock script %}
   </body>
 </html>

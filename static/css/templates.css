@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/* O V E R L A Y */
+    
+.overlay{
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  }
+
+
+
+.intro h2 {
+    color: #64A6BD;
+}
+
+.intro p {
+    padding: 10px;
+    text-align: center;
+}
+
+.main {
+    margin-top: 50px;
+    padding: 20px;  
+    background-color: white;
+    text-align:center;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.card {
+    height: 400px;
+}
+
+.options{
+    text-align: left;
+    margin: 15px 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 2px #DBE2F4;
+    border-radius: 5px;
+}
+
+.inner_cards p{
+    margin-left: 25px;
+}
+
+.radio-label{
+    font-weight: 600;
+}
+
+.check {
+    display: flex;
+    margin-left: 25px;
+    margin-top: -14px;
+}
+
+.check p {
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.btn {
+    width: 116px;
+    height: 56px;
+    background-color: #64A6BD;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.radio {
+    padding: 5px 15px;
+    padding-top: 15px;
+    margin-left: 60px;
+
+}
+
+*{ margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.main_header{
+  /* position: fixed; */
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.5rem 3rem;
+  align-items: center;
+}
+body{
+  background-color: #fff;
+  
+}
+form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.searchbar {
+  display: flex;
+  /* margin: 0.5rem; */
+  border: none;
+  outline: none;
+  /* border-color: grey; */
+  padding-left: 10px;
+}
+.searchbar input {
+  border : none;
+  outline: none;
+  /* color: rgba(34, 34, 34, 0.5); */
+  margin-left: 5px;
+  font-size: 1rem;
+  /* background-color: #222222; */
+}
+input{
+  border: none;
+  padding: 0.5rem;
+  /* color: rgba(34, 34, 34, 0.5) */
+}
+.place{
+  margin-left: 5px;
+}
+.user{
+  display: flex;
+  justify-content: space-between;
+}
+.icon{
+  display: flex;
+  justify-content: space-between;
+}
+.bell{
+  margin-right: 1rem;
+}
+.account_1{
+  padding: 0 0.5rem;
+}
+.top{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.logo{
+  padding: 0 1.5rem;
+}
+/* HAMBUGER MENU FOR HEADER */
+.list-items a{
+  color: black;
+  /* display: block; */
+  /* width: 100%; */
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+.list-items a:hover{
+  background: #607EAA;
+}
+.list-items i{
+  padding-right: 10px;
+}
+label #sidebar_btn{
+color: #fff;
+  cursor: pointer;
+  font-size: 50px;
+  margin: 10px 0;
+  transition: 0.5s;
+  transition-property: color;
+  height: 40px;
+}
+
+label #sidebar_btn:hover{
+  color: #607EAA;
+}
+#check:checked  .list-items{
+  left: 190px;
+} 
+#check:checked  .list-items a span{
+  display: none;
+}
+#check :checked .list-items a{
+  font-size: 20px;
+  margin-left: 100px;
+  width: 80px;
+}
+.list-items{
+  background: #F5EEDC;
+  /* margin-top: 20px; */
+  padding-top: 70px;
+  width: 250px;
+  height: 100vh;
+  transition: 0.5s ease;
+  transform: translateX(0);
+  display:none;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  }
+  
+  #check:checked  .list-items{
+    left: 190px;
+  } 
+  
+  
+  
+  
+.Account{
+  color: black;
+}
+.content{
+  display: grid;
+  grid-template-columns: repeat(4,1fr); 
+  grid-template-areas: 232px;
+  gap: 10px;
+  width: 80%;
+  margin:auto;
+  padding-left: 100px;
+}
+.content div{
+    padding: 1px;
+    text-align: center;
+}
+  .von{
+    width: 232px;
+    height: 302px;
+  }
+  .flex{
+    display: flex;
+    justify-content:center
+  }
+  .bottom{
+    color: darkgreen;
+    font-size: 15px;
+  }
+
+   /* O V E R L A Y */
+    
+  .overlay{
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  }
+
+
+
+.intro h2 {
+    color: #64A6BD;
+}
+
+.intro p {
+    padding: 10px;
+    text-align: center;
+}
+
+.main {
+    margin-top: 50px;
+    padding: 20px;  
+    background-color: white;
+    text-align:center;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.card {
+    height: 450px;
+}
+
+.options{
+    text-align: left;
+    margin: 15px 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 2px #DBE2F4;
+    border-radius: 5px;
+}
+
+.inner_cards p{
+    margin-left: 25px;
+}
+
+.radio-label{
+    font-weight: 600;
+}
+
+.check {
+    display: flex;
+    margin-left: 25px;
+    margin-top: -14px;
+}
+
+.check p {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.btn {
+    width: 116px;
+    height: 56px;
+    background-color: #64A6BD;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.radio {
+    padding: 5px 15px;
+    padding-top: 15px;
+    margin-left: 60px;
+
+}
+  
+  
+.header_texts{
+  font-family: "Montserrat", sans-serif;
+  display: block;
+  text-align: center;
+  color:#64A6BD;
+}
+
+.welcome_text{
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 42px;
+}
+
+
+.main_video, .footer_video{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.skip_button{
+  background: #64A6BD;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 15px;
+  width: 116px;
+  padding:10px, 20px, 10px, 20px;
+  border: none;
+  outline: none;
+}
+
+.all{
+  margin-top: 50px;
+  padding: 20px;  
+  background-color: white;
+  text-align:center;
+  max-width: 450px;
+  max-height:542.81;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}

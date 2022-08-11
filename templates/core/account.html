@@ -8,13 +8,27 @@
     <title> Account Settings</title>
     <link rel="stylesheet" href="{% static 'css/account.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         
 </head>
 
 <body>
-
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-success">
+            <div class="modal-body  p-2 text-white" id="error_modal" style="text-align: center;">
+              Saved successfully
+            </div>
+          </div>
+        </div>
+    </div>
     <main class="main-wrapper">
 
         <section class="icons-section">
@@ -78,7 +92,9 @@
                             <input type="text" id="firstname" value="{{user.username}}" name="firstName" disabled>
                         </div>
                         <label for="dispName" id="dispName" class="first">Email</label><br>
-                        <input type="text" id="dispName" value="{{user.email}}" name="dispName" disabled>
+                        <input type="text" id="dispName" value="{{user.email}}" name="dispName" disabled><br>
+                        <label for="dispName" id="dispName" class="first">Site URL</label><br>
+                        <input type="text" id="dispName" value="{{user.user_profile.domain_name}}" name="dispName" disabled>
                     </form>
                 </div>
                 
@@ -101,38 +117,23 @@
                     <p class="next">Personal information</p>
                     <p class="togeda">This information will be displayed publicly so be careful what you share.</p>
                 </div>
-
+                <form onsubmit="saveContent(event)" method="post">
+                    {% csrf_token %}
                 <div class="personal-data">
-                    <label for="" class="email">Email address</label><br>
-                    <input type="email" id="email" value="{{user.username}}" name="email" disabled>
+                    <label for="" class="email">Username</label><br>
+                    <input type="text" id="username" value="{{user.username}}" name="username" disabled>
 
-                    <label for="ph_nos" class="ph_nos">Phone number</label><br>
-                    <input type="tel" id="ph_nos" name="ph_nos" disabled>
+                    <label for="ph_nos" class="ph_nos">Email</label><br>
+                    <input type="email" id="ph_nos" value="{{user.email}}" name="email">
 
                 </div>
 
                 <div class="options">
-                    <label for="country" class="country">Country</label><br>
-                    <select name="country" id="country">
-                        <option value=""></option>
-                        <option value="#">Italy</option>
-                        <option value="#">Greece</option>
-                        <option value="#">England</option>
-                        <option value="#">Brazil</option>
-                        <option value="xx">Gambia</option>
-                        <option value="xxx">Nigeria</option>
-                    </select>
+                    <label for="" class="email">First Name</label><br>
+                    <input type="text" id="first_name" value="{{user.first_name}}" name="first_name">
 
-                    <label for="lang" class="lang">Language</label><br>
-                    <select name="lang" id="lang">
-                        <option value=""></option>
-                        <option value="#">English</option>
-                        <option value="#">Yoruba</option>
-                        <option value="#">Igbo</option>
-                        <option value="#">Francais</option>
-                        <option value="xx">Mandarin</option>
-                        <option value="xxx">Dutch</option>
-                    </select>
+                    <label for="ph_nos" class="ph_nos" style="margin-top: 10px;">Last Name</label><br>
+                    <input type="text" id="ph_nos" value="{{user.last_name}}" name="last_name">
                     <hr>
                 </div>
 
@@ -140,12 +141,46 @@
                     <button type="reset" id="reset">Cancel</button>
                     <button type="submit" id="submit">Save</button>
                 </div>
+            </form>
 
             </div>
 
         </section>
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function saveContent(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('email', document.getElementsByName('email')[0].value)
+        formData.append("first_name", document.getElementsByName('first_name')[0].value);
+        formData.append('last_name', document.getElementsByName('last_name')[0].value)
+        const csrftoken = document.querySelector(
+          "[name=csrfmiddlewaretoken]"
+        ).value;
+        const url = `{% url 'user_edit_profile' username=request.user.username %}` 
+        const request = new Request(url, {
+          method: "POST",
+          headers: { "X-CSRFToken": csrftoken },
+          mode: "same-origin", // Do not send CSRF token to another domain.
+          body: formData,
+        });
+        
+        fetch(request)
+          .then((resp) => resp.json())
+          .then((response) => {
+            $("#successModal").modal("show");
+              setTimeout(() => {
+                $("#successModal").modal("hide");
+                  window.location.reload();
+              }, 1600);       
+            }           
+          )
+      }
+  
+    </script>
     
 </body>
 

@@ -1,0 +1,64 @@
+.hero, .post-grid{
+    width: 86%;
+    margin: 0px auto;
+}
+.hero{
+    padding-top: 72px;
+}
+.postflex{
+    display: flex;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 72px;
+}
+.postflex h2{
+    line-height: 60px;
+    font-size: 40px;
+    margin-bottom: 44px;
+    letter-spacing: 0.01em;
+}
+.post-btn{
+    width: 302px;
+    height: 80px;
+    background-color: #64a6bd;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 20px;
+    line-height: 24px;
+    border: none;
+    outline: none;
+}
+.post-main{
+    width: 36%;
+}
+.post-main2{
+    width: 64%;
+}
+.post-main2 img{
+    width: 100%;
+}
+
+.post-grid{
+    column-gap: 24px;
+    row-gap: 72px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 159px;
+}
+.post-grid img{
+    width: 100%;
+    margin-bottom: 16px;
+}
+.notification{
+    font-size: 14px;
+    line-height: 21px;
+    color: #64a6bd;
+    margin-bottom: 16px;
+}
+a:link{
+    text-decoration: none;
+}
+.topic{
+    color: #222222;
+    font-size: 16px;
+}
