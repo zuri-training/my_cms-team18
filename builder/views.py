@@ -174,7 +174,7 @@ def user_edit_profile(request, username):
         return JsonResponse({ "result" : 'Saved Successful', 'status': 201}, status=201)
 
 def templates(request):
-    templates = Template.objects.all()[:6]
+    templates = Template.objects.all()
     return render(request, 'core/templates.html', context={'templates': templates})
 
 def post(request):
