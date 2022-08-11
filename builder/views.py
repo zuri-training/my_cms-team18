@@ -36,7 +36,7 @@ def edit_template(request, id):
 
 def save_template(request, id):
     if not request.user.username:
-        return JsonResponse({ "url" : '/sign-up/?next=%s' % '/edit/3/'})
+        return JsonResponse({ "url" : '/sign-up/?next=%s' % f'/edit/{id}/'})
     template = Template.objects.get(id=id)
     thumbnail = template.thumbnail
     user = UserProfile.objects.get(user=request.user)
@@ -173,7 +173,7 @@ def user_edit_profile(request, username):
         return JsonResponse({ "result" : 'Saved Successful', 'status': 201}, status=201)
 
 def templates(request):
-    templates = Template.objects.all()[:6]
+    templates = Template.objects.all()
     return render(request, 'core/templates.html', context={'templates': templates})
 
 def post(request):
