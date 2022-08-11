@@ -10,7 +10,7 @@ from allauth.account.signals import user_signed_up
 User = get_user_model()
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_profile")
     bio =  models.TextField(blank=True, null=True)
     domain_name = models.CharField(blank=True, null=True, max_length=200)
 

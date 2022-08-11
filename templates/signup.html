@@ -71,7 +71,7 @@
 
  <div class="account">
     <p> Already have an account? </p>
-    <p><a href="{% url 'login' %}"> Log In </a></p>
+    <p><a href="{% url 'login' %}" id="login"> Log In </a></p>
 </div>
 
 <div class="para">
@@ -100,6 +100,13 @@
         const error_modal = document.getElementById(`error_modal`)
         error_modal.innerText = ``
     }
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const next = urlParams.get('next')
+    if (next){
+      const login = document.getElementById('login');
+      login.setAttribute('href', `/login/?next=${next}`)
+    }
     function saveContent(e) {
         e.preventDefault();
         const formData = new FormData();
@@ -117,6 +124,7 @@
           mode: "same-origin", // Do not send CSRF token to another domain.
           body: formData,
         });
+        
         fetch(request)
           .then((resp) => resp.json())
           .then((response) => {
@@ -139,11 +147,15 @@
                 $("#successModal").modal("show");
               setTimeout(() => {
                 $("#successModal").modal("hide");
-                window.location = `{% url 'login' %}`;
+                if (next){
+                  window.location.href = next
+                }
+                else{
+                  window.location = `{% url 'templates' %}?user=newUser`;
+                }
               }, 1600);
               
-            }
-            
+            }           
           })
       }
   </script>

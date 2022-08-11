@@ -1,0 +1,270 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Posts{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{{ block.super }}
+{% endblock css %}
+
+{% block content %}
+<main>
+    <section class="hero">
+      <div class="postflex">
+        <div class="post-main">
+          <h2>Why you should create a business website in 2022</h2>
+          <a href="{% url 'post_detail_page' %}"><button class="post-btn">Read More</button></a>
+        </div>
+        <div class="post-main2">
+          <img src="{% static 'images/Image (13).png' %}" alt="Laptop" />
+        </div>
+      </div>
+    </section>
+    <section class="post-grid">
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (1).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>
+              10 Steps to Making a Graphic Design Portfolio, with Examples to
+              Learn From
+            </p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (14).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">5 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>How to Start a Travel Blog (+ Get Paid Doing it)</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (3).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>
+              YouTube Live: How to Live Stream On YouTube and Gain Engagements
+            </p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (4).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>Podcast Topics: 104 Engaging Podcast Ideas for Your Show</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (5).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>Affiliate Marketing: How to Start and Maximize Commissions</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (6).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>How to Create a Nonprofit Website</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (7).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>How to Master Video Marketing from Start to Finish</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (15).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>Instagram Reels: How to Reach New Audiences Effectively</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (16).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>How to Make Money With TikTok</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (17).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>The Ultimate Beginner's Guide to Google Search Console</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (18).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>The 13 Best Motivational Podcasts to Boost Your Confidence</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (19).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>Guerrilla Marketing: 12 Awesome Examples to Learn From</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (20).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>100 Motivational Quotes to Get You Through the Day</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (21).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins read</span>
+            </p>
+          </div>
+          <div class="topic">
+            <p>How to Be Successful At Work</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="{% url 'post_detail_page' %}">
+        <div class="grid-item">
+          <div>
+            <img src="{% static 'images/Image (22).png' %}" alt="laptop" />
+          </div>
+          <div class="notification">
+            <p>
+              <span id="update-time">2 days ago</span> .
+              <span id="read-time">14 mins</span> read
+            </p>
+          </div>
+          <div class="topic">
+            <p>Podcast Topics: 104 Engaging Podcast Ideas for Your Show</p>
+          </div>
+        </div>
+      </a>
+    </section>
+</main>
+{% endblock content %}

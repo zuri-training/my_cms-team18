@@ -772,173 +772,7 @@
 
 
 /* section:footer--section */
-.footer--section {
-    margin-top: 13%;
-    background: #E0EDF2;
-    color: #222222;
-    border-bottom: 2px solid #222222;
-}
 
-.footer--section__flex {
-    display: flex;
-    justify-content: space-between;
-    padding: 2% 3%;
-}
-
-.footer--section__header {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.footer--section__list {
-    list-style: none;
-}
-
-.footer--section__link {
-    text-decoration: none;
-    color: #222222;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 60px;
-}
-
-.footer--section__brand {
-    width: 399px;
-    height: 280px;
-}
-
-.footer--logo {
-    padding: 2% 20%;
-}
-
-.footer--section__brand--logo {
-    background: url("/static/images/Group\ 270.png");
-    width: 171.44px;
-    height: 48.59px;
-    position: absolute;
-}
-
-.footer--section__para {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 43px;
-    margin-top: 13%;
-    text-align: left;
-}
-
-.footer--section__flex2 {
-    display: flex;
-    padding: 2% 3%;
-    margin-top: -2%;
-    margin-bottom: 25px;
-}
-
-.footer--section__subscribe--letter {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    color: #222222;
-}
-
-.footer--section__subscribe--input {
-    display: flex;
-    margin-top: 2%;
-    justify-content: space-between;
-    width: 110%;
-    border: 1px solid #222222;
-    border-radius: 5px;
-}
-
-.footer--section__input {
-    padding: 3.5%;
-    background: #E0EDF2;
-    font-family: 'Montserrat';
-    border: none;
-    outline: none;
-    border-radius: 5px;
-}
-
-.footer--section__input::-webkit-input-placeholder {
-    font-family: 'Montserrat';
-    color: #222222;
-}
-
-.footer--section__button {
-    background: #64A6BD;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    border: none;
-    outline: none;
-    color: #FFFFFF;
-    font-family: 'Montserrat';
-    padding: 1.5%;
-    margin: 1%;
-}
-
-.footer--section__connect {
-    margin-left: 50%;
-}
-
-.footer--section__connect--heading {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    color: #222222;
-}
-
-.footer--section__icons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3%;
-}
-
-.footer--section__icons1--link {
-    background: url("/static/images/twitter\ icon.png");
-    width: 56px;
-    height: 56px;
-    position: absolute;
-}
-
-.footer--section__icons2--link {
-    background: url("/static/images/instagram\ icon.png");
-    width: 56px;
-    height: 56px;
-    position: absolute;
-    margin-left: 20px;
-}
-
-.footer--section__icons3--link {
-    background: url("/static/images/Linkedin\ icon.png");
-    width: 56px;
-    height: 56px;
-    position: absolute;
-    margin-left: 40px;
-}
-
-.footer--section__icons4--link {
-    background: url("/static/images/facebook\ icon.png");
-    width: 56px;
-    position: absolute;
-    height: 56px;
-    margin-left: 60px;
-}
-
-
-/* section:rights */
-.right-reserved {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
-    text-align: left;
-    color: #222222;
-    padding: 1% 3%;
-    background-color: #E0EDF2;
-}
-
-/* F A Q */
 
 .heading{
     margin-top: 94px;
@@ -1002,9 +836,288 @@
     letter-spacing: normal;
 }
 
-/*styling features containers*/
+/* FOOTER */
+footer{
+    height: 668px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #E0EDF2;
+}
 
-.features{
+.footer-details{
+    height: 601.59px;
+    padding: 64px 87px 0px 104px;
+    border-bottom: 2px solid #222222;
+    display: flex;
+    flex-direction: column;
+}
+.footer-nav-bar{
+    display: flex;
+    width: 603px;
+    justify-content: space-between;
+    height: fit-content;
+    margin-right: 143px;
+}
+
+.footer-nav-bar div{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.footer-nav-bar p{
+    line-height: 60px;
+    font-size: 24px;
+}
+
+.footer-nav-bar a:link{
+    text-decoration: none;
+    color: #222222;
+}
+
+.footer-nav-bar a:visited{
+    color: #222222;
+}
+
+.flex-2{
+    text-align: center;
+    width: 419px;
+    height: 250.59px;
+    padding: 10px;
+}
+
+.flex-2 p{
+    text-align: left;
+    margin-top: 32px;
+    letter-spacing: -0.055em;
+}
+.item1{
+    display: flex;
+    margin-bottom: 118.59px;
+    justify-content: space-between;
+}
+.item2{
+    display: flex;
+    margin-right: 50px;
+    justify-content: space-between;
+}
+
+.item2 h2{
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.flex-3 h2{
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+form{
+    border: 1px #000000 solid;
+    border-radius: 5px;
+    display: flex;
+    width: 446px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 4px 3px 12px;
+}
+
+input{
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 19.5px;
+    font-weight: 500;
+    color: #222222;
+}
+
+:placeholder{
+    font-size: 16px;
+    line-height: 19.5px;
+    font-weight: 500;
+    color: #222222;
+    font-family: 'montserrat';
+}
+
+.sub-btn{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 16px 20px;
+    border-radius: 4px;
+    background-color: #64A6BD;
+    color: #F7F1F7;
+    border: none;
+    font-family: 'montserrat';
+}
+
+.flex-4 h2{
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.social-links{
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+}
+
+.rights{
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 24px;
+    margin-left: 106px;
+    margin-top: 24px;
+    color: #222222;
+}
+
+
+
+/* Responsiveness */
+@media screen and (max-width: 1024px){
+    .footer-details{
+        padding-left: 70px;
+    }
+    /* all here is for footer responsiveness */
+}
+
+@media screen and (max-width: 912px){
+    form{
+        width: 330px;
+    }
+    .item2{
+        margin-right: 0px;
+    }
+    .sub-btn{
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+    /* all here is also for footer responsiveness */
+}
+
+@media screen and (max-width: 820px){
+    body{
+        font-size: 16px;
+    }
+    .faq{
+        width: 90%;
+        padding: 0px;
+        margin: 0px auto;
+    }
+    .faq h2{
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    .question{
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    .get-in-touch{
+        width: 300px;
+    }
+
+    /* footer responsiveness starts here till the end*/
+    .items{
+        flex-direction: column;
+    }
+
+    .footer-nav-bar{
+        flex-direction: column;
+        margin-right: 0px;
+        width: fit-content;
+        align-self: center;
+        text-align: center;
+    }
+    .footer-nav-bar div{
+        gap: 13px;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    
+    .footer-nav-bar p{
+        font-size: 20px;
+        line-height: normal;
+    }
+    
+    footer, .footer-details{
+        height: fit-content;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .flex-2{
+        width: 90%;
+        margin: 20px auto 0px;
+        height: fit-content;
+    }
+    .flex-2 p{
+        text-align: center;
+        width: 90%;
+        margin: 0px auto;
+        height: fit-content;
+    }
+    .item1{
+        margin-bottom: 30px;
+    }
+
+    .item2{
+        text-align: center;
+    }
+    .flex-3 h2, .flex-4 h2{
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    form{
+        margin: 0px auto 50px;
+    }
+    
+    input{
+        font-size: 14px;
+    }
+    
+    :placeholder{
+        font-size: 14px;
+    }
+    
+    .social-links{
+        width: 330px;
+        margin: 0px auto;
+    }
+    
+    .rights{
+        font-size: 14px;
+        margin: 10px 0px 0px;
+        padding-bottom: 10px;
+        text-align: center;
+    } 
+}
+@media screen and (max-width: 340px){
+    form{
+        width: 90%;
+        padding-left: 4px;
+    }
+    :placeholder{
+        font-size: 12px;
+    }
+    .sub-btn{
+        font-size: 12px;
+        padding: 8px 7px;
+    }
+    .social-links{
+        width: 90%;
+    }
+    .get-in-touch{
+        width: 80%;
+    }
+}
+  
+  /* F E A T U R E S */
+
+  .features{
     margin: 78px 548px 34px 537px;
   }
   #up{
@@ -1028,7 +1141,6 @@
     text-align: center;
   }
   
-  /* F E A T U R E S */
   
   .content-wrap{
     width: 100%;

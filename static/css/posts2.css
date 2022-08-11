@@ -1,0 +1,43 @@
+.notify{
+    padding-top: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 16px;
+    color: #64a6bd;
+}
+
+.post{
+    width: 86%;
+    margin: 0px auto;
+    color: #222222;
+}
+
+.option-btn{
+    border: none;
+    outline: none;
+}
+.summary{
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 84px;
+    margin-bottom: 56px;
+}
+.only-image{
+    width: 100%;
+    margin-bottom: 80px;
+}
+article{
+    margin-bottom: 129px;
+}
+article p{
+    margin-bottom: 25px;
+}
+.podcast{
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: 700;
+    color: #64a6bd;
+}

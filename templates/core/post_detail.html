@@ -1,0 +1,114 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Posts{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/posts2.css' %}">
+{{ block.super }}
+{% endblock css %}
+
+{% block content %}
+<main class="post">
+    <section>
+      <div>
+        <div class="notify">
+          <p>
+            <span id="update-time">2 days ago</span> .
+            <span id="read-time">14 mins</span>
+          </p>
+          <a href="#"
+            ><button class="option-btn">
+              <img
+                src="{% static 'images/Group (1).png' %}"
+                alt="three dots for option"
+              /></button
+          ></a>
+        </div>
+      </div>
+      <div>
+        <p class="summary">
+          The 2 Best Motivational Podcasts to Boost Your Confidence
+        </p>
+      </div>
+      <div>
+        <img class="only-image" src="{% static 'images/Image (18).png' %}" alt="" />
+      </div>
+    </section>
+    <article>
+      <p>
+        Motivation isn't something that just comes to you. It"s a learned
+        habit that can sometimes be difficult to achieve. Whether you want to
+        improve your productivity, start that new art project, or even create
+        a website, maintaining motivation is a valuable skill in all areas of
+        life. So what can you turn to if you're stuck in a rut and could
+        benefit from a boost? Motivational podcasts.
+      </p>
+      <p>
+        Podcasts are not only free and easily accessible, but they"re also
+        genuinely uplifting and inspiring. They can remind us that we're all
+        human. For sure, doubts, issues and crises will inevitably come, but
+        we have the power to turn them into opportunities. And sometimes, we
+        only need this perspective, along with some practical tips, to make us
+        feel better and move forward.
+      </p>
+      <p>
+        Does this sound like something you'd be interested in checking out? If
+        so, we've hand-picked some of the best motivational podcasts just for
+        you:
+      </p>
+      <div class="podcast">
+        <p>01. The GaryVee Audio Experience</p>
+      </div>
+      <p>
+        Gary Vaynerchuk (a.k.a. Gary Vee) has a voice that everyone needs to
+        hear at least once - beyond the fact that he"s intimidatingly
+        successful. His podcast not only provides valuable marketing tips for
+        your business, but can also help you find empowerment in your daily
+        life.
+      </p>
+      <p>
+        The origins of his motivational podcasts are rooted in Gary Vee"s
+        personal story. Born in Belarus, he moved with his family to the U.S.
+        when he was just three years old. His parents ran a discount liquor
+        store, which he took over when he graduated college. From there, he
+        completely rebranded the store to focus on wine, and turned a $3
+        million per year business into a $60 million per year one. This was
+        just the beginning of his route to success.
+      </p>
+      <p>
+        Today, Gary Vee is primarily known for VaynerMedia, a social media
+        agency. As such, you can imagine that his social channels are filled
+        to the brim with fresh content that he produces every day. He also
+        started a podcast, The GaryVee Audio Experience, which releases
+        episodes almost on a daily basis. The tone is very “go get 'em," which
+        is helpful when you need an extra push.
+      </p>
+      <p>
+        In a nutshell: GaryVee's high energy and matter-of-factness may
+        sometimes be hard to handle, but only because you need to hear it.
+      </p>
+      <div class="podcast">
+        <p>02. Tony Robbins Podcast</p>
+      </div>
+      <p>
+        Tony Robbins needs absolutely no introduction. His very own website
+        details his experience as “an entrepreneur, #1 NY Times bestselling
+        author, philanthropist, and the nation's #1 life and business
+        strategist.” While that's all very impressive, it's almost too modest.
+        Tony Robbins is a legend.
+      </p>
+      <p>
+        His name has been synonymous with the term “motivational speaker” for
+        decades, and he inspires listeners without full-on preaching to them.
+        The podcast tackles subjects like finance, happiness, how to become an
+        entrepreneur, and many others - all while providing a perspective that
+        you can only get from the man himself. It allows you to get the same
+        wealth of knowledge found within his books, but in a more relaxed and
+        easily digestible format.
+      </p>
+      <p>
+        In a nutshell: Robbins' natural talent for speaking makes his
+        inspirational podcasts straightforward and easy to understand.
+      </p>
+    </article>
+  </main>
+{% endblock content %}

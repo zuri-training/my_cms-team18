@@ -57,7 +57,10 @@
     </div>
     <nav class="navbar bg-light" style="background-color: #E0EDF2!important;">
       <div class="container-fluid" style="background-color: #E0EDF2;">
-        <a class="navbar-brand">Edit Template</a>
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'images/Group 271.png' %}" alt="" width="80" height="24" class="d-inline-block align-text-top mt-1">
+        </a>
+        <span style="font-size: large;">Edit Template</span>
         <form class="d-flex" role="search" onsubmit="saveContent(event)">
           {% csrf_token %}
           <input
@@ -104,6 +107,7 @@
         formData.append('title', document.getElementById('title').value)
         formData.append("html", editor.getHtml());
         formData.append("css", editor.getCss());
+        const user = `{{ request.user }}`
         const csrftoken = document.querySelector(
           "[name=csrfmiddlewaretoken]"
         ).value;
@@ -117,10 +121,17 @@
         fetch(request)
           .then((resp) => resp.json())
           .then((response) => {
-            $('#exampleModal').modal('show')
-            setTimeout(()=> {$('#exampleModal').modal('hide')}, 1000)
-            let url = `{% url 'user_template_preview' username=request.user.username id=1234 %}`.replace('1234', response.result.pk.toString())
-            setTimeout(()=> {window.location.href=url}, 1000)
+            if (response.url){
+              window.location.href=response.url
+            }
+            else{
+              $('#exampleModal').modal('show')
+              setTimeout(()=> {$('#exampleModal').modal('hide')}, 1000)
+              if (user !== "AnonymousUser"){
+                let url = `{% url 'user_template_preview' username=request.user id=1234 %}`.replace('1234', response.result.pk.toString())
+                setTimeout(()=> {window.location.href=url}, 1000)
+              }
+            }
           })
           .catch((error) => {
             console.log(error);

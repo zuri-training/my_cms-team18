@@ -1,0 +1,210 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}FORGE{% endblock title %}
+{% block css %} 
+{{ block.super }}
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+<link rel="stylesheet" href="{% static 'css/templates.css' %}">
+
+{% endblock css %}
+
+{% block nav %}
+<div class="list-items">
+  <a href="#" class="btn-close" 
+    >&times;</a
+  >
+  <ol>
+
+  <li><a href="#"><i class="fa fa-desktop"></i><span>Dasboard</span></a></li>
+  <li><a href="#"
+    ><i class="fas fa-sliders-h"></i><span>Activities</span></a></li>
+  <li><a href="#"><i class="fa fa-folder"></i><span>Projects</span></a></li>
+  <li><a href="#"><i class="fa fa-question"></i><span>FAQs</span></a></li>
+  <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+
+</ol>
+</div>
+<header>
+  <div class="main_header">
+    <div class="top">
+      <a class="ham" href="#">
+        <i class="fa fa-bars" id="sidebar_btn"></i>
+      </a>
+      <nav>
+        <!-- <div class="navbar">
+          <div class="open slide" onclick="openSlideMenu()"></div>
+       
+
+        <div class="list-items">
+          <a href="#" class="btn-close" onclick="closeSideMenu()"
+            >&times;</a
+          >
+          <ol>
+
+          <li><a href="#"><i class="fa fa-desktop"></i><span>Dasboard</span></a></li>
+          <li><a href="#"
+            ><i class="fas fa-sliders-h"></i><span>Activities</span></a></li>
+          <li><a href="#"><i class="fa fa-folder"></i><span>Projects</span></a></li>
+          <li><a href="#"><i class="fa fa-question"></i><span>FAQs</span></a></li>
+          <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+        </div>
+      </ol>
+    </div>
+      </nav> -->
+      <div class="logo">
+        <a href="/">
+          <img src="{% static 'images/Group 271.png' %}" alt="logo" />
+        </a>
+      </div>
+
+    </div>
+
+    
+    <div class="searchbar" style="border: none;">
+      <div style="border: none;">
+        <form style="border: none;">
+          <div class="search-img">
+            <a href="">
+              <i class="fa fa-search"></i>
+          </a>
+          </div>
+          <input
+            type="text"
+            placeholder="Coffee Shop Website"
+            style="border: none;"
+          />
+        </form>
+      </div>
+    </div>
+      <div class="user">
+      <div class="bell">
+        <i class="fa fa-bell"></i>
+      </div>
+      <div class="icon">
+        <div>
+          <i class="fa fa-user-circle"></i>
+        </div>
+        <div class="account_1">
+          <a href="" class="Account">{{ request.user.username }}</a>
+        </div>
+        <div>
+          <i class="fa fa-caret-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock nav %}
+
+{% block content %}
+
+
+<div class="content" style="margin-top: 5rem;">
+  {% if templates %} 
+    {% for template in templates %}
+      <div class="two">
+        <img src="{{ template.thumbnail.url  }}" width="40px" alt="frame 1" class="von" />
+        <a href="{% url 'edit' template.id %}" style="text-decoration: none; margin-top: 5px; color: #000;"><p>
+          {{ template.title }}</p>
+        </a>
+        <p class="bottom">free</p>
+      </div>
+    {% endfor %}
+  {% else %}
+   <h2 style="margin-bottom: 50rem;">Hi {{ request.user.username }}! <br><small>you have no templates</small></h2>
+  {% endif %}
+  </div>
+  <div class="overlay" id="overlay1" style="display: none">
+    <div class="main">
+        <div class="intro">
+            <h2>Welcome to forge!</h2>
+            <p>
+            To help us guide your experience tells <br />
+            about yourself
+            </p>
+        </div>
+  
+        <div class="card" style="height: 400px;">
+            <div class="options">
+                <div class="inner_cards">
+                    <input type="radio" id="radio-btn" name="fav_language" value="HTML" /> 
+                        &nbsp;
+                    <label class="radio-label" for="radio-btn">Beginner </label>
+                    <p>I am new to web development</p>
+                </div>
+                
+            </div>
+  
+            <div class="options">
+                <div class="inner_cards">
+                    <input type="radio" id="radio-btn" name="fav_language" value="HTML" /> 
+                        &nbsp;
+                    <label class="radio-label" for="radio-btn">Intermediate </label>
+                    <p>I have a little web development skills.</p>
+                </div>
+                
+            </div>
+  
+            <div class="options">
+                <div class="inner_cards">
+                    <input type="radio" id="radio-btn" name="fav_language" value="HTML" /> 
+                        &nbsp;
+                    <label class="radio-label" for="radio-btn">Intermediate </label>
+                    <p>I have a little web development skills.</p>
+                </div>
+                
+            </div>
+            
+            <div class="check">
+  
+             
+            
+        <label class="checkbox-label" for="checkbox"></label>
+        <p style="margin-left: 60px;">To help us guide your experience tells <br />
+            about yourself</p> 
+  
+            </div>
+  
+            <button class="btn" style="margin-top: 10px; border: none;" onclick="Fade()"><a >Submit</a></button>            
+        </div>
+    </div>
+  </div>
+  <div class="overlay" id="overlay2" style="display: none;">
+    <div class="all">
+            <div class="all_2">
+        <header>
+            <div class="header_texts">
+                <div>
+                <h2 class="welcome_text">Welcome to Forge!</h2>
+                </div>
+                <div>
+                <p class="watch_text">Watch an introduction video about our<br>
+                best features and how to get started.</p>
+            </div>
+            </div>
+        </header>
+        <main class="main_video"><iframe width="400" height="256" src="https://www.youtube.com/embed/Qa9MvktOcIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></main>
+        <div style="margin-top: 2rem;"><button onclick='window.location.href="/"' class="skip_button">Skip</button></div>
+    </div>
+    </div>
+</div>
+  {% endblock content %}
+
+  {% block script %}
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const user = urlParams.get('user')
+    if (user){
+      $('#overlay1').delay(500).fadeIn(400)
+    }
+    function Fade(){
+      $('#overlay1').delay(500).fadeOut(400)
+      $('#overlay2').delay(800).fadeIn(400)
+    }
+
+  </script>
+  {% endblock script %}

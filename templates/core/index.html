@@ -18,7 +18,7 @@
     </div>
 </section>
 
-{% if request.user.is_authenticated %}
+
     {% if templates %}                
         <section class="about">
             <div class="about__template">
@@ -40,7 +40,7 @@
             </div>
         </section>
     {% endif %}
-{% endif %}
+
 
 
 <section class="template-edition">
@@ -88,15 +88,9 @@
                 <div class="template-grid__box">
                     <img class="templates-customization__grid1" src="{{ template.thumbnail.url }}">
                     <div class="grid-button">
-                        {% if request.user.is_authenticated %}
                             <a href="{% url 'edit' template.id %}" class="navbar__brand--link template-customization__button">
                                 Customize Template
                             </a>
-                        {% else %}
-                            <a href="{% url 'preview' template.id %}" class="navbar__brand--link template-customization__button">
-                                Preview Template
-                            </a>
-                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -104,7 +98,7 @@
         
     </div>
     <div class="customize-button">
-        <a href="" class="navbar__brand--link template-customization__bottom--button">
+        <a href="{% url 'templates' %}" class="navbar__brand--link template-customization__bottom--button">
             View More Website Templates
         </a>
     </div>
