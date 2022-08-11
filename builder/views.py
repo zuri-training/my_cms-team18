@@ -159,6 +159,7 @@ def account(request, username):
 def contact(request):
     return render(request, 'core/contact.html')
 
+
 @login_required
 def user_edit_profile(request, username):
     user = User.objects.get(username=request.user.username)
@@ -209,3 +210,4 @@ def post_detail_page(request):
 
 def termsofservice(request):
     return render(request, 'core/terms.html')
+
