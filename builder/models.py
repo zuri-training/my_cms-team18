@@ -1,7 +1,7 @@
 from email.policy import default
 from ensurepip import bootstrap
 from re import template
-from turtle import mode, title
+# from turtle import mode, title
 from unicodedata import category, name
 from django.db import models
 from django.contrib.auth import get_user_model
