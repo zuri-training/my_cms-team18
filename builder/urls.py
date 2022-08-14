@@ -1,6 +1,6 @@
 from re import template
 from django.urls import path
-from .views import delete_user_template, faq, features, index, post_detail_page, postpage, preview_template, edit_template, blank, account, contact, publish_page, save_template, templates, termsofservice, user_edit_profile, user_site_url, user_templates, user_template_preview, edit_user_template, save_user_template, login_user, register_user, logout_user
+from .views import about, activity, delete_user_template, privacy, faq, features, index, post_detail_page, postpage, preview_template, edit_template, blank, account, contact, publish_page, save_template, support, templates, termsofservice, user_edit_profile, user_site_url, user_templates, user_template_preview, edit_user_template, save_user_template, login_user, register_user, logout_user
 
 urlpatterns = [
     path('', index, name="index"),
@@ -27,5 +27,8 @@ urlpatterns = [
     path('posts/', postpage, name="post_page"),
     path('post-detail/', post_detail_page, name="post_detail_page"),
     path('terms-of-service/', termsofservice, name="terms_page"),
-
+    path('about/', about, name="about"),
+    path('privacy/', privacy, name="privacy"),
+    path('support/', support, name="support"),
+    path('activity/', activity, name="activity"),
 ]

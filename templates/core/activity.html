@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/free/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/free/css/v4-shims.css' %}">
+    <link rel="stylesheet" href="{% static 'css/activity.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    
+        
+    <div class="navbar">
+        <div class="nav-content">
+            <i class="fa fa-bars fa-2x" id="bar"></i>
+            <a href="/"><img src="{% static 'css/group.png' %}" alt="logo" class="logo"></a>
+            <div class="input" style="margin-left: 35%;">
+                <input type="search" placeholder="Coffee shop website">
+            </div>
+            <div class="user">
+                <i class="fa fa-bell fa-2x"></i>
+                <i class="fa fa-user-circle-o fa-2x"></i>
+                <span class="acct">Account <i class="fa fa-angle-down"></i></span> 
+            </div>       
+        </div>
+    </div>
+
+    <div class="side-nav" id="content">
+        <a href="/"><img src="{% static 'css/group.png' %}" alt="logo" id="logo"></a>
+        <div class="hidden-contents">
+            <div class="content">
+                <!-- <img src="./menu.png" alt="dash"> -->
+                <h4><i class="fa fa-dashcube fa-2x"></i>      Dashboard</h4>
+            </div>
+            <div class="content c3">
+                <h4><i class="fa fa-note-sticky fa-2x"></i>      Activities</h4>
+            </div>
+            <div class="content">
+                <h4><i class="fa fa-folder fa-2x"></i>      Projects</h4>
+            </div>
+            <div class="content">
+                <h4><i class="fa fa-puzzle-piece fa-2x"></i>      FAQS</h4>
+            </div>
+            <div class="content">
+                <h4><i class="fa fa-gear fa-2x"></i>     Settings</h4>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br>
+            <div class="content">
+                <h4><i class="fa fa-question fa-2x"></i>   Help</h4>
+            </div>
+        </div>
+    </div>
+    <!-- End of Navigation Bar -->
+    <div class="body" style="margin-bottom: 15%;">
+        <!-- Header -->
+        <header class="header" id="head">
+            <h3>Hers's your latest site and business actiity</h3>
+            <div class="dropdown">
+                <button class="sss">Size Actions <i class="fa fa-angle-down"></i></button>
+                <div class="drop-content"style="font-size: smaller;">
+                    <div class="one" style="padding: 2mm; border-bottom: 1px solid #6BA8BD;">
+                        <h3>
+                            <i class="fa fa-file-text"></i>
+                            Rename Site
+                        </h3>
+                        <h3 style="color: light-grey;">
+                            <i class="fa fa-comment"></i>
+                            Get Feedback
+                        </h3>
+                        <h3 style="color: light-grey;">
+                            <i class="fa fa-eye"></i>
+                            Preview Site
+                        </h3>
+                    </div>
+
+                    <div class="two" style="padding: 2mm; border-bottom: 2px solid #6BA8BD;">
+                        <h3>
+                            <i class="fa fa-send"></i>
+                            Transfer Site
+                        </h3>
+                        <h3>
+                            <i class="fa fa-people-carry"></i>
+                            Invite People
+                        </h3>
+                    </div>
+
+                    <div class="three" style="padding: 2mm; border-bottom: 1px solid #6BA8BD;">
+                        <h3>
+                            <i class="fa fa-folder-plus"></i>
+                            Duplicate Site
+                        </h3>
+                        <h3>
+                            <i class="fa fa-trash"></i>
+                            Move to Trash
+                        </h3>
+                    </div>
+
+                    <div class="four">
+                        <h3>
+                            <i class="fa fa-new"></i>
+                            Create New Site
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <button class="tal">Customize Size</button>
+        </header>
+        <br><br><br>
+        <!-- End of Header -->
+
+        <!-- Analytics -->
+        <section class="analytics">
+            <span class="report">View All Reports</span>
+            <h3>Analytics</h3>
+            <p>Your key stats will appear here once your site is published</p>
+            <button class="sac">Site sessions</button>
+            <button class="ttl">Total</button>
+        </section>
+        <br><br>
+        <!-- End of Analytics -->
+
+        <!-- Group -->
+        <!-- <div class="group"> -->
+            
+            <div class="first">
+            <br><br><br>
+                <div class="upcoming">
+                    <h3 id="h3">Upcoming Sessions</h3>
+                    <i class="fa fa-calendar fa-2x"></i>
+                    <h4>Add your first service</h4>
+                    <p>Get your information online & track your sessions here</p>
+                    <a href="#">+    Add a Service</a>
+                </div>
+                <br><br><br>
+                <div class="upcoming">
+                    <h3 id="h3">Facebook & Instagram Ads</h3>
+                    <i class="fa fa-facebook fa-2x"></i>
+                    <i class="fa fa-instagram fa-2x"></i>
+                    <p>Find more customers on Facebook and Instagram</p>
+                    <a href="#">+ Create an Ad Campaign</a>
+                </div>
+                <br>
+            </div>
+
+            <div class="second">
+                <div class="mail">
+                    <h3 id="h3">Latest Email camps</h3>
+                    <i class="fa fa-mail-bulk fa-2x"></i>
+                    <p>Create and send mails to produce brands</p>
+                    <a href="#">+ Create an Email campaign</a>
+                </div>
+                <br>
+
+                <div class="mail">
+                    <h3 id="h3">Invoices</h3>
+                    <p>There are no invoices to show</p>
+                    <a href="#">+ Add New invoice</a>
+                </div>
+                <br>
+
+                <div class="mail">
+                    <h3 id="h3">Upcoming</h3>
+                    <p>there are no tasks to show</p>
+                    <a href="#">+ Add new tasks </a>
+                </div>
+            </div>
+            
+            <div class="third">
+                <div class="img">
+                    <div class="content">
+                        <div class="icon">
+                            <i class="fa fa-globe fa-4x"></i>
+                        </div>
+                        <div class="txt">
+                            <h3>Website</h3>
+                            <p>Customize your Website and 
+                            <br>publish itso clients  
+                            <br>can find your services 
+                            <br>online</p>
+                            <button>Customize one</button>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="content">
+                        <div class="icon2">
+                            <i class="fa fa-mobile fa-4x"></i>
+                        </div>
+                        <div class="txt2">
+                            <h3>Mobile app</h3>
+                            <p>Customize your Website 
+                            <br>and publish it so 
+                            <br>clients can find your 
+                            <br>servicers online</p>
+                            <button>Let's go</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- End of group -->
+    </div>
+
+
+    <!-- Javascript -->
+    <script>
+        let menu = document.getElementById('bar')
+
+        let content = document.getElementById('content')
+
+        let fade = document.getElementById('logo')
+
+        menu.addEventListener('click', function() {
+            content.classList.add('display')
+        })
+
+        fade.addEventListener('click', function() {
+            content.classList.remove('display')
+        })
+    </script>
+</body>
+</html>
