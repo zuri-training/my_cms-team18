@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
-SITE_ID = 2
+SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
