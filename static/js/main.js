@@ -6,4 +6,3 @@ AOS.init({
 });
 
 const sticky = new Sticky('[data-sticky]');
-

@@ -1,0 +1,197 @@
+:root{
+    --ash:#E9EEF2;
+    --blue:#6BA8BD;
+    --border: .1rem solid var(--blue);
+    --white: #fff;
+    --black: #000;
+}
+body{
+    background-color: var(--ash);
+    font-family: sans-serif;  
+}
+.body {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+button{
+    background: none;
+    border-radius: 10px;
+    border: var(--border);
+} 
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--white);
+    padding: 4mm 5mm;
+    box-shadow: 0mm 1mm 5mm rgba(121, 121, 121, 0.534);
+}
+.side-nav {
+    background-color: var(--white);
+    width: 20%;
+    height: 28cm;
+    margin-top: -2cm;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    box-shadow: 0mm 0mm 4mm rgba(151, 151, 151, 0.514);
+}
+#logo {
+    padding: 2mm 5mm;
+    
+}
+.content {
+    padding: 0mm 2mm;
+}
+.hidden-content .content:hover {
+    background-color: var(--blue);
+}
+.c3 {
+    background-color: var(--blue);
+
+}
+.display {
+    display: block;
+}
+.nav-content {
+    display: flex;
+    gap: 1cm;
+    margin-left: 2.5rem;
+    margin-right: 3rem;
+}
+.user {
+    margin-left: 1cm;
+}
+.input input {
+    width: 9cm;
+    height: 8mm;
+    margin-top: 4mm;
+    border: 1px solid var(--ash);
+    background-color: var(--ash);
+}
+/* Header */
+.header{
+    display: inline-flex;
+}
+.header button{
+    margin-top: 5mm;
+    margin-left: 30px;
+    background: none;
+    border-radius: 10px;
+    height: 8mm;
+    width: 50mm;
+    border: var(--border);
+}
+.header .tal {
+    background-color: var(--blue);
+}
+.drop-content h3 {
+    font-size: 13px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block
+}
+.drop-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown:hover .drop-content {
+    display: block;
+}
+/* End of Header */
+
+/* Analytics */
+.analytics{
+    background: var(--white);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.report {
+    float: right;
+    color: var(--blue);
+}
+.sac{
+    text-align: left;
+    width: 110mm;
+    height: 12mm;
+}
+.ttl{
+    text-align: left;
+    width: 110mm;
+    height: 12mm;
+}
+/* End of Analytics */
+
+/* Group */
+a{
+    text-decoration: none;
+    color: var(--blue);
+    font-size: 15px;
+}
+#h3{
+    border-bottom: .2rem solid var(--blue);
+    padding: 2mm;
+    font-size: 17px;
+}
+
+/* First */
+.first {
+    width: 30%;
+}
+.upcoming{
+    background-color: var(--white);
+    width: auto;
+    text-align: center;
+    padding: 5mm;
+    border-radius: 10px;
+}
+/* End of First */
+
+/* Second */
+.second{
+    margin-left: 32%;
+    width: 70%;
+    margin-top: -40.1%;
+}
+.third{
+    margin-top: 24.6%;
+}
+.mail{
+    background-color: var(--white);
+    width: 40%;
+    text-align: center;
+    padding: 5mm;
+    border-radius: 10px;
+}
+/* End of Second */
+
+/* Third */
+.img{
+    width: 30%;
+    margin-left: 67%;
+    margin-top: -65.5%;
+    padding: 5mm;
+    background: var(--white);
+    border-radius: 10px;
+}
+.img i {
+    color: var(--blue);
+}
+.content{
+    display: flex;
+    gap: 5mm;
+}
+.content button {
+    padding: 1.5mm 5mm;
+    background-color: var(--blue);
+}
+.website{
+    display: inline-flex;
+}
+/* End of Third */

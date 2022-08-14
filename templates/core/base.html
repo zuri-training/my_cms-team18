@@ -320,7 +320,7 @@
           <div class="navbar__brand" style="margin-top: 15px;">
             <ul class="navbar__brand--item">
               <li class="navbar__brand--list">
-                <a href="" class="navbar__brand--link">About Us</a>
+                <a href="{% url 'about' %}" class="navbar__brand--link">About Us</a>
               </li>
               <li class="navbar__brand--list">
                 <a href="{% url 'contact' %}" class="navbar__brand--link">Contact Us</a>
@@ -373,6 +373,8 @@
             </ul>
           </div>
         </header>
+        {% block header_txt %}
+        {% endblock header_txt %}
       </section>
       {% endblock nav %}
 
@@ -391,14 +393,15 @@
                     <div>
                       <a href="../Documentation page/docs.html"><strong>Documentation</strong></a>
                       <a href="{% url 'blank' %}">Website Builder</a>
-                      <a href="#">Activity</a>
+                      <a href="{% url 'activity' %}">Activity</a>
                       <a href="{% url 'post_page' %}">Recent Posts</a>
                     </div>
                     <div>
-                      <a href="#"><strong>About Forge</strong></a>
+                      <a href="{% url 'about' %}"><strong>About Forge</strong></a>
                       <a href="{% url 'faq' %}">FAQs</a>
-                      <a href="../terms_of_services_page/termsOfServices.html">Privacy Policy</a>
+                      <a href="{% url 'privacy' %}">Privacy Policy</a>
                       <a href="{% url 'terms_page' %}">Terms of Use</a>
+                      <a href="{% url 'support' %}">Support Us</a>
                     </div>
                   </nav>
                 <div class="flex-2">

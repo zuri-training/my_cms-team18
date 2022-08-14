@@ -211,3 +211,15 @@ def post_detail_page(request):
 def termsofservice(request):
     return render(request, 'core/terms.html')
 
+def about(request):
+    return render(request, 'core/about.html')
+
+def privacy(request):
+    return render(request, 'core/privacy.html')
+
+def support(request):
+    return render(request, 'core/support.html')
+
+def activity(request):
+    return render(request, 'core/activity.html')
+
