@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-rj7fd3do=ba@_x=&ix=343k7g7#3nvr4d3r7)q(do*@ns$)1#x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
-SITE_ID = 3
+SITE_ID = 2
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
